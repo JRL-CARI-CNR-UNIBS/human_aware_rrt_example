@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+  <rosparam command="load" file="$(find human_aware_franka)/config/config.yaml" />
+  <node name="human_aware_franka" pkg="human_aware_franka" type="human_aware_franka_node" respawn="false" output="screen" />
+  <node name="dummy_occupancy_node" pkg="dummy_occupancy" type="dummy_occupancy_node" respawn="false" output="screen" />
+
+  <rosparam file="$(find human_aware_franka)/config/thor_safety.yaml" command="load"/>
+  <node pkg="velocity_scaling_iso15066" type="velocity_scaling_iso15066_node" name="safety" output="log"/>  
+
+  <!--<include file="$(find sharework_cembre_sensors)/launch/centroid.launch">
+    <arg name="remote_pc" value="false"/>
+  </include> -->
+
+</launch>
