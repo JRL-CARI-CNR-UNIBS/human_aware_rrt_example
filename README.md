@@ -11,8 +11,16 @@ This repo provides packages for testing and evaluating human-aware path planners
 ```
 roslaunch human_aware_test human_aware_test_node.launch
 ```
+## Result
 
-### Configuration
+The test node is expected to print a comparison of the planners as shown in the following picture:
+
+TODO
+
+A csv file containing the results of each execution of each query is saved at "~/results_hamp.csv".
+
+
+## Configuration
 
 In human_aware_test/launch/config.yaml, you can change:
 
