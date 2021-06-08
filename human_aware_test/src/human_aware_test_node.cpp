@@ -75,11 +75,14 @@ int main(int argc, char** argv)
   results_file.close();
 
   /* Params */
+  int n_goals=1;
   int planning_trials = 3;
   double planning_time = 5.0;
   std::string planning_group = "panda_arm";
   std::vector<std::string> planners;
 
+  if (!node_handle.getParam("n_goals",n_goals))
+    ROS_WARN("n_goals not found. Default: %d", n_goals);
   if (!node_handle.getParam("planning_time",planning_time))
     ROS_WARN("planning_time not found. Default: %f", planning_time);
   if (!node_handle.getParam("planning_trials",planning_trials))
@@ -112,6 +115,31 @@ int main(int argc, char** argv)
   planning_scene::PlanningScenePtr planning_scene = std::make_shared<planning_scene::PlanningScene>(kinematic_model);
 
   move_group.setPlanningTime(planning_time);
+
+
+
+//  planning_pipeline::PlanningPipelinePtr planning_pipeline(new planning_pipeline::PlanningPipeline(robot_model, pnh, "/move_group/planning_plugin", "/move_group/request_adapters"));
+//  moveit::core::JointModelGroup* jmg=robot_model->getJointModelGroup(group_name);
+
+//  actionlib::SimpleActionClient<control_msgs::FollowJointTrajectoryAction> ac("/"+group_name+"/follow_joint_trajectory",true);
+
+//  if (!ac.waitForServer())
+//  {
+//    ROS_ERROR("unable to conenct with execution server");
+//    return 0;
+//  }
+
+//  control_msgs::FollowJointTrajectoryGoal trj_goal;
+
+//  std::string what;
+
+//  planning_scene::PlanningScenePtr scene=planning_scene::PlanningScene::clone(psm.getPlanningScene());
+//  moveit_msgs::PlanningScene scene_msg;
+//  scene->getPlanningSceneMsg(scene_msg);
+//  ROS_INFO_STREAM("scene\n"<<scene_msg.robot_state.joint_state);
+//  robot_state::RobotState state(scene->getCurrentState());
+
+
 
 
   /* Results */
