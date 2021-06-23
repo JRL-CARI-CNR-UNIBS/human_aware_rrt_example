@@ -68,48 +68,53 @@ int main(int argc, char **argv)
 
   ros::Duration(1).sleep();
 
+  ROS_INFO("qui");
+
 
   std::string group_name="manipulator";
   if (!pnh.getParam("group_name",group_name))
   {
-    ROS_ERROR("%s/group_name not defined",nh.getNamespace().c_str());
+    ROS_ERROR("%s/group_name not defined",pnh.getNamespace().c_str());
     return 0;
   }
 
   std::string tool_name;
   if (!pnh.getParam("tool_name",tool_name))
   {
-    ROS_ERROR("%s/tool_name not defined",nh.getNamespace().c_str());
+    ROS_ERROR("%s/tool_name not defined",pnh.getNamespace().c_str());
     return 0;
   }
 
   double planning_time;
   if (!pnh.getParam("planning_time",planning_time))
   {
-    ROS_ERROR("%s/planning_time not defined",nh.getNamespace().c_str());
+    ROS_ERROR("%s/planning_time not defined",pnh.getNamespace().c_str());
     return 0;
   }
 
   double approach_distance;
   if (!pnh.getParam("approach_distance",approach_distance))
   {
-    ROS_ERROR("%s/approach_distance not defined",nh.getNamespace().c_str());
+    ROS_ERROR("%s/approach_distance not defined",pnh.getNamespace().c_str());
     return 0;
   }
 
   std::string planning_name="planning_plugin";
   if (!pnh.getParam("planning_plugin",planning_name))
   {
-    ROS_ERROR("%s/planning_plugin not defined",nh.getNamespace().c_str());
+    ROS_ERROR("%s/planning_plugin not defined",pnh.getNamespace().c_str());
     return 0;
   }
   else
   {
     ROS_INFO("%s/planning_plugin = %s",pnh.getNamespace().c_str(),planning_name.c_str());
   }
+  ROS_INFO("qui");
+
   planning_pipeline::PlanningPipelinePtr planning_pipeline(new planning_pipeline::PlanningPipeline(robot_model, pnh, "/move_group/planning_plugin", "/move_group/request_adapters"));
   moveit::core::JointModelGroup* jmg=robot_model->getJointModelGroup(group_name);
 
+  ROS_INFO("qui");
 
   actionlib::SimpleActionClient<control_msgs::FollowJointTrajectoryAction> ac("/"+group_name+"/follow_joint_trajectory",true);
 
@@ -118,6 +123,9 @@ int main(int argc, char **argv)
     ROS_ERROR("unable to conenct with execution server");
     return 0;
   }
+
+  ROS_INFO("qui");
+
 
   control_msgs::FollowJointTrajectoryGoal trj_goal;
 
@@ -129,6 +137,7 @@ int main(int argc, char **argv)
   ROS_INFO_STREAM("scene\n"<<scene_msg.robot_state.joint_state);
   robot_state::RobotState state(scene->getCurrentState());
 
+  ROS_INFO("qui");
 
 
   std::vector<Eigen::VectorXd> picking_configurations;
@@ -139,6 +148,9 @@ int main(int argc, char **argv)
     ROS_ERROR("Parameter %s/picking_configurations is not correct.",pnh.getNamespace().c_str());
     return 0;
   }
+
+  ROS_INFO("qui");
+
 
   int target_pub_number=0;
   for (const Eigen::VectorXd& conf: candidate_picking_configurations)

@@ -1,13 +1,13 @@
 move_group_name: panda_arm
 planning_time: 5.0
-planning_trials: 10
+planning_trials: 4
 planners:
 - mg1
 - mg2
 
 occ_center:
 - 0
-- 0.5
+- 0
 - 0.5
 
 occ_radius:

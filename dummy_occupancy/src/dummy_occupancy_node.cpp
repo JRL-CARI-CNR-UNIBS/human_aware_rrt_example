@@ -39,7 +39,7 @@ bool updateOccupancyFcn(std_srvs::Empty::Request  &req,
   array.poses.clear();
 
   geometry_msgs::Pose pose;
-  array.header.frame_id="world";
+  array.header.frame_id="panda_link0";
   pose.position.x=mu.at(0);
   pose.position.y=mu.at(1);
   pose.position.z=mu.at(2);
