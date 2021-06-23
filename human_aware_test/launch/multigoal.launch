@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+
+<node pkg="human_aware_test"  type="multigoal_test_node" name="multigoal_test_node" output="screen">
+  <rosparam command="load" file="$(find human_aware_test)/config/multigoal.yaml"/>
+  <param  name="planning_plugin" value="pathplan/DIRRTStar" />
+</node>
+
+</launch>
+

@@ -48,7 +48,6 @@
 
 #include <fstream>
 
-
 float meanFcn(float new_data,float old_mean, int samples)
 {
   float delta = new_data - old_mean;
@@ -83,12 +82,16 @@ int main(int argc, char** argv)
 
   if (!node_handle.getParam("n_goals",n_goals))
     ROS_WARN("n_goals not found. Default: %d", n_goals);
+
   if (!node_handle.getParam("planning_time",planning_time))
     ROS_WARN("planning_time not found. Default: %f", planning_time);
+
   if (!node_handle.getParam("planning_trials",planning_trials))
     ROS_WARN("planning_trials not found. Default: %d", planning_trials);
+
   if (!node_handle.getParam("move_group_name",planning_group))
     ROS_WARN("move_group_name not found. Default: %s", planning_group);
+
   if (!node_handle.getParam("planners",planners))
   {
     ROS_WARN("move_group not found. Exit.");
@@ -113,10 +116,19 @@ int main(int argc, char** argv)
   robot_model_loader::RobotModelLoader robot_model_loader("robot_description");
   robot_model::RobotModelPtr       kinematic_model = robot_model_loader.getModel();
   planning_scene::PlanningScenePtr planning_scene = std::make_shared<planning_scene::PlanningScene>(kinematic_model);
+  moveit::core::JointModelGroup* jmg=kinematic_model->getJointModelGroup(planning_group);
+
 
   move_group.setPlanningTime(planning_time);
 
+  moveit_visual_tools::MoveItVisualTools visual_tools("panda_link0");
+  visual_tools.deleteAllMarkers();
 
+  std::map<int, rviz_visual_tools::colors> color_map;
+  color_map[0] = rviz_visual_tools::RED;
+  color_map[1] = rviz_visual_tools::BLUE;
+  color_map[2] = rviz_visual_tools::GREEN;
+  color_map[3] = rviz_visual_tools::MAGENTA;
 
 //  planning_pipeline::PlanningPipelinePtr planning_pipeline(new planning_pipeline::PlanningPipeline(robot_model, pnh, "/move_group/planning_plugin", "/move_group/request_adapters"));
 //  moveit::core::JointModelGroup* jmg=robot_model->getJointModelGroup(group_name);
@@ -161,11 +173,15 @@ int main(int argc, char** argv)
   moveit::core::RobotStatePtr current_state =  move_group.getCurrentState();
   moveit::core::RobotStatePtr start_state =  move_group.getCurrentState();
   moveit::core::RobotStatePtr target_state =  move_group.getCurrentState();
-  move_group.setStartState(*start_state);
+
+  //move_group.setStartState(*start_state);
+
+  move_group.setStartStateToCurrentState();
 
   for (unsigned int i_trial=0;i_trial<planning_trials;i_trial++)
   {
     start_state=move_group.getCurrentState();
+//    ROS_WARN_STREAM("start state (begin): " << *start_state);
 
     bool is_valid=false;
     unsigned int i_try=0;
@@ -200,19 +216,33 @@ int main(int argc, char** argv)
       ROS_ERROR("occupancy service failed.");
     }
 
-    /* Execute */
+    visual_tools.deleteAllMarkers();
+
+    /* Plan and execute */
 
     for(std::size_t i_pl = 0; i_pl < planners.size(); ++i_pl)
     {
       std::string planner = planners[i_pl];
 
       move_group.setPlannerId(planner);
-      std::string planner_id = move_group.getPlannerId();
-      ROS_ERROR("planner_id=%s", planner_id.c_str());
+      ROS_ERROR("planner_id=%s", move_group.getPlannerId().c_str());
 
       current_state=move_group.getCurrentState();
-      move_group.setStartState(*start_state);
+
+      move_group.setStartStateToCurrentState();
       move_group.setJointValueTarget(*target_state);
+
+      std::vector<double> tmp_std = move_group.getCurrentJointValues();
+      Eigen::VectorXd tmp;
+      tmp.resize(tmp_std.size());
+      for (unsigned int idx=0;idx<tmp_std.size();idx++)
+        tmp(idx) = tmp_std.at(idx);
+
+
+//      ROS_INFO_STREAM("start state: " << tmp);
+
+      target_state->copyJointGroupPositions(planning_group,tmp);
+//      ROS_INFO_STREAM("target state: " << tmp )  ;
 
       moveit::planning_interface::MoveGroupInterface::Plan plan;
 
@@ -222,6 +252,9 @@ int main(int argc, char** argv)
         ROS_INFO_NAMED("Hamp", "Planning %s failed at trial %u", planner.c_str(), i_trial);
       else
       {
+        visual_tools.publishTrajectoryLine(plan.trajectory_,jmg,color_map[i_pl]);
+        visual_tools.trigger();
+
         ros::Time t0 = ros::Time::now();
         success = (move_group.execute(plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
         exec_time[i_pl] = (ros::Time::now() - t0).toSec();
@@ -233,17 +266,27 @@ int main(int argc, char** argv)
           ROS_INFO_NAMED("Hamp", "%s trial %u : %s", planner.c_str(), i_trial, success ? "SUCCESS" : "FAILED");
       }
 
-      ros::Duration(1.0).sleep();
+      ros::Duration(0.5).sleep();
+      move_group.stop();
 
       if (!success)
       {
-        failure[i_pl]=!success;
+        failure[i_pl]=1;
         exec_time[i_pl]=0.0;
         path_length[i_pl]=0.0;
       }
+      else
+        failure[i_pl]=0;
 
       current_state = move_group.getCurrentState();
-      move_group.setStartState(*current_state);
+      move_group.setStartStateToCurrentState();
+
+
+      tmp_std = move_group.getCurrentJointValues();
+      for (unsigned int idx=0;idx<tmp_std.size();idx++)
+        tmp(idx)=tmp_std.at(idx);
+
+//      ROS_INFO_STREAM("current state: " << tmp);
 
       /* Going back to previous starting point */
       if (planner.compare(planners.back()))
@@ -261,7 +304,26 @@ int main(int argc, char** argv)
           ROS_INFO_NAMED("Hamp", "Failing at moving back to start config, trial %u", i_trial);
           continue;
         }
+        else
+        {
+          ROS_INFO_NAMED("Hamp", "Back to home ok, trial %u", i_trial);
+          tmp_std = move_group.getCurrentJointValues();
+          Eigen::VectorXd tmp;
+          tmp.resize(tmp_std.size());
+          for (unsigned int idx=0;idx<tmp_std.size();idx++)
+            tmp(idx) = tmp_std.at(idx);
+          ROS_INFO_STREAM("current state: " << tmp);
+        }
       }
+      else
+      {
+        ROS_WARN_STREAM("not going home. Planner: " << planner << ". Planner back: " << planners.back() );
+        std::cout << planner.compare(planners.back()) << "\n";
+      }
+
+
+      ros::Duration(0.5).sleep();
+      move_group.stop();
 
     }
 
@@ -269,7 +331,7 @@ int main(int argc, char** argv)
     results_file.open (filename, std::ios_base::app);
     for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
     {
-      results_file << exec_time[i_pl] << "\t" << path_length[i_pl] << "\t";
+      results_file << exec_time[i_pl] << "\t" << path_length[i_pl] << "\t" << failure[i_pl];
     }
     results_file << "\n";
     results_file.close();
@@ -278,9 +340,9 @@ int main(int argc, char** argv)
     /* Calculate mean and variance */
     for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
     {
-      if (!failure[0])
+      if (failure[0]==0)
       {
-        if (!failure[i_pl])
+        if (failure[i_pl]==0)
         {
           double exec_time_norm=exec_time[i_pl]/exec_time[0];
           double path_length_norm = path_length[i_pl]/path_length[0];
@@ -290,7 +352,7 @@ int main(int argc, char** argv)
           path_length_avg[i_pl] = meanFcn(path_length_norm,path_length_avg[i_pl],i_trial-failure_cum[i_pl]+1);
         }
       }
-      if (failure[i_pl])
+      if (failure[i_pl]==1)
         failure_cum[i_pl]++;
     }
   }
