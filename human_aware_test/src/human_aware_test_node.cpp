@@ -68,17 +68,22 @@ int main(int argc, char** argv)
   ros::AsyncSpinner spinner(1);
   spinner.start();
 
-  std::string filename = "/home/hypatia/Scrivania/results_hamp.csv";
-  std::ofstream results_file;
-  results_file.open (filename);
-  results_file.close();
-
   /* Params */
   int n_goals=1;
   int planning_trials = 3;
   double planning_time = 5.0;
   std::string planning_group = "panda_arm";
   std::vector<std::string> planners;
+
+  std::string filename;
+  if (!node_handle.getParam("filename_results",filename))
+  {
+    ROS_ERROR("filename not found. Abort.");
+    return 0;
+  }
+  std::ofstream results_file;
+  results_file.open (filename);
+  results_file.close();
 
   if (!node_handle.getParam("n_goals",n_goals))
     ROS_WARN("n_goals not found. Default: %d", n_goals);
