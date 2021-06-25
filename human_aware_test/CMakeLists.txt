@@ -3,7 +3,7 @@ project(human_aware_test)
 #add_compile_options(-std=c++11)
 
 find_package(catkin REQUIRED COMPONENTS
-  moveit_tutorials
+  eigen_conversions
   roscpp
   moveit_planning_helper
 )
@@ -11,9 +11,9 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(Eigen3 REQUIRED)
 
 catkin_package(
-   INCLUDE_DIRS 
-   LIBRARIES 
-   CATKIN_DEPENDS moveit_tutorials roscpp
+   INCLUDE_DIRS
+   LIBRARIES
+   CATKIN_DEPENDS roscpp eigen_conversions
    DEPENDS EIGEN3
 )
 
@@ -33,5 +33,3 @@ add_dependencies(multigoal_test_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catki
 target_link_libraries(multigoal_test_node
   ${catkin_LIBRARIES}
 )
-
-
