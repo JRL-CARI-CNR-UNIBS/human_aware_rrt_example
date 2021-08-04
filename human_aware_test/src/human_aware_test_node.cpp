@@ -95,7 +95,7 @@ int main(int argc, char** argv)
     ROS_WARN("planning_trials not found. Default: %d", planning_trials);
 
   if (!node_handle.getParam("move_group_name",planning_group))
-    ROS_WARN("move_group_name not found. Default: %s", planning_group);
+    ROS_WARN("move_group_name not found. Default: %s", planning_group.c_str());
 
   if (!node_handle.getParam("planners",planners))
   {
@@ -236,6 +236,7 @@ int main(int argc, char** argv)
 
       move_group.setStartStateToCurrentState();
       move_group.setJointValueTarget(*target_state);
+      move_group.setPlanningTime(planning_time);
 
       std::vector<double> tmp_std = move_group.getCurrentJointValues();
       Eigen::VectorXd tmp;

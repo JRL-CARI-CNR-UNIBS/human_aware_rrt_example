@@ -62,7 +62,7 @@ int main(int argc, char **argv)
   ros::Publisher poses_pub=nh.advertise<geometry_msgs::PoseArray>("poses",1);
 
 
-
+  array.header.frame_id="panda_link0";
   Eigen::Vector3d x_min;
   Eigen::Vector3d x_max;
   x_min.setConstant(-3);
