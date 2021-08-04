@@ -1,8 +1,8 @@
 move_group_name: panda_arm
 planning_time: 25.0
-planning_trials: 4
+planning_trials: 10
 planners:
-#- mg1
+- mg1
 - timebased
 - probabilistic_hamp_time_based
 - hamp_timebased
@@ -17,4 +17,4 @@ occ_radius:
 - 1
 - 0.5
 
-filename_results: home/jacobi/.ros/hamp_results.csv
+filename_results: /home/hypatia/.ros/hamp_results.csv

@@ -318,7 +318,7 @@ int main(int argc, char** argv)
           tmp.resize(tmp_std.size());
           for (unsigned int idx=0;idx<tmp_std.size();idx++)
             tmp(idx) = tmp_std.at(idx);
-          ROS_INFO_STREAM("current state: " << tmp);
+          //ROS_INFO_STREAM("current state: " << tmp);
         }
       }
       else
@@ -343,19 +343,21 @@ int main(int argc, char** argv)
     results_file.close();
 
     /* Printo to video */
+    std::cout << "Execution time:";
     for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
     {
-      std::cout << "Execution time:";
       std::cout << "\t" << exec_time[i_pl];
     }
+
+    std::cout << "\nPath length:";
     for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
     {
-      std::cout << "\nPath length:";
       std::cout << "\t" << path_length[i_pl];
     }
+
+    std::cout << "\nFailure:";
     for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
     {
-      std::cout << "\nFailure:";
       std::cout << "\t" << failure[i_pl];
     }
     std::cout << "\n";
