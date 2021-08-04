@@ -171,9 +171,9 @@ int main(int argc, char** argv)
   }
   std::vector<int> failure_cum = failure;
   std::vector<double> path_length_avg = path_length;
+  std::vector<double> path_length_varM2 = path_length;
   std::vector<double> exec_time_avg = exec_time;
-  std::vector<double> exec_time_var = exec_time_avg;
-  std::vector<double> path_length_var = path_length;
+  std::vector<double> exec_time_varM2 = exec_time_avg;
 
   moveit::core::RobotStatePtr current_state =  move_group.getCurrentState();
   moveit::core::RobotStatePtr start_state =  move_group.getCurrentState();
@@ -264,7 +264,7 @@ int main(int argc, char** argv)
         success = (move_group.execute(plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
         exec_time[i_pl] = (ros::Time::now() - t0).toSec();
         path_length[i_pl]=trajectory_processing::computeTrajectoryLength(plan.trajectory_.joint_trajectory);
-        std::cout << "path length= " << path_length[i_pl];
+        //std::cout << "path length= " << path_length[i_pl];
         if (!success)
           ROS_INFO_NAMED("Hamp", "Executing %s failed at trial %u", planner.c_str(), i_trial);
         else
@@ -341,6 +341,24 @@ int main(int argc, char** argv)
     results_file << "\n";
     results_file.close();
 
+    /* Printo to video */
+    for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
+    {
+      std::cout << "Execution time:";
+      std::cout << "\t" << exec_time[i_pl];
+    }
+    for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
+    {
+      std::cout << "\nPath length:";
+      std::cout << "\t" << path_length[i_pl];
+    }
+    for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
+    {
+      std::cout << "\nFailure:";
+      std::cout << "\t" << failure[i_pl];
+    }
+    std::cout << "\n";
+
 
     /* Calculate mean and variance */
     for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
@@ -351,9 +369,9 @@ int main(int argc, char** argv)
         {
           double exec_time_norm=exec_time[i_pl]/exec_time[0];
           double path_length_norm = path_length[i_pl]/path_length[0];
-          exec_time_var[i_pl] = varianceM2Fcn(exec_time_norm,exec_time_avg[i_pl],exec_time_var[i_pl],i_trial-failure_cum[i_pl]+1);
+          exec_time_varM2[i_pl] = varianceM2Fcn(exec_time_norm,exec_time_avg[i_pl],exec_time_varM2[i_pl],i_trial-failure_cum[i_pl]+1);
           exec_time_avg[i_pl] = meanFcn(exec_time_norm,exec_time_avg[i_pl],i_trial-failure_cum[i_pl]+1);
-          path_length_var[i_pl] = varianceM2Fcn(path_length_norm,path_length_avg[i_pl],path_length_var[i_pl],i_trial-failure_cum[i_pl]+1);
+          path_length_varM2[i_pl] = varianceM2Fcn(path_length_norm,path_length_avg[i_pl],path_length_varM2[i_pl],i_trial-failure_cum[i_pl]+1);
           path_length_avg[i_pl] = meanFcn(path_length_norm,path_length_avg[i_pl],i_trial-failure_cum[i_pl]+1);
         }
       }
@@ -366,12 +384,13 @@ int main(int argc, char** argv)
   std::cout << "\n****************************************************\n";
   std::cout <<   "*                    Results                       *\n";
   std::cout <<   "****************************************************\n";
+  std::cout << "Number of trials: " << planning_trials << "\n";
   std::cout << "\t\t\t\t\tmean\t\tst.dev\n";
   for(std::size_t i_pl = 0; i_pl < planners.size(); ++i_pl)
   {
     std::cout << "Planner: " << planners[i_pl].c_str()  << "\n";
-    std::cout << "Execution time [normalized]:\t\t" << exec_time_avg[i_pl] << "\t\t" << sqrt(exec_time_var[i_pl]/(planning_trials-failure_cum[i_pl]-1.0)) << "\n";
-    std::cout << "Path length [normalized]:\t\t" << path_length_avg[i_pl] << "\t\t" << sqrt(path_length_var[i_pl]/(planning_trials-failure_cum[i_pl]-1.0)) << "\n";
+    std::cout << "Execution time [normalized]:\t\t" << exec_time_avg[i_pl] << "\t\t" << sqrt(exec_time_varM2[i_pl]/(planning_trials-failure_cum[i_pl]-1.0)) << "\n";
+    std::cout << "Path length [normalized]:\t\t" << path_length_avg[i_pl] << "\t\t" << sqrt(path_length_varM2[i_pl]/(planning_trials-failure_cum[i_pl]-1.0)) << "\n";
     std::cout << "N. of failures: \t\t\t" << failure_cum[i_pl] << "\n";
     std::cout << "\n";
   }
