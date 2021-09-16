@@ -63,41 +63,42 @@ float varianceM2Fcn(float new_data, float old_mean, float old_varianceM2, int sa
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "human_aware_franka_node");
-  ros::NodeHandle node_handle;
+  ros::init(argc, argv, "hamp_benchmark");
+  ros::NodeHandle nh;
+  ros::NodeHandle pnh("~");
+
   ros::AsyncSpinner spinner(1);
   spinner.start();
 
   /* Params */
-  int n_goals=1;
-  int planning_trials = 3;
+
   double planning_time = 5.0;
-  std::string planning_group = "panda_arm";
-  std::vector<std::string> planners;
-
-  std::string filename;
-  if (!node_handle.getParam("filename_results",filename))
-  {
-    ROS_ERROR("filename not found. Abort.");
-    return 0;
-  }
-  std::ofstream results_file;
-  results_file.open (filename);
-  results_file.close();
-
-  if (!node_handle.getParam("n_goals",n_goals))
-    ROS_WARN("n_goals not found. Default: %d", n_goals);
-
-  if (!node_handle.getParam("planning_time",planning_time))
+  if (!nh.getParam("planning_time",planning_time))
     ROS_WARN("planning_time not found. Default: %f", planning_time);
 
-  if (!node_handle.getParam("planning_trials",planning_trials))
-    ROS_WARN("planning_trials not found. Default: %d", planning_trials);
+  int planning_trials;
+  if (!nh.getParam("planning_trials",planning_trials))
+  {
+    ROS_FATAL("planning_trials not set.");
+    return 0;
+  }
 
-  if (!node_handle.getParam("move_group_name",planning_group))
-    ROS_WARN("move_group_name not found. Default: %s", planning_group.c_str());
+  std::string planning_group;
+  if (!nh.getParam("move_group_name",planning_group))
+  {
+    ROS_WARN("move_group_name not set");
+    return 0;
+  }
 
-  if (!node_handle.getParam("planners",planners))
+  std::string tool_frame;
+  if (!nh.getParam("tool_frame",tool_frame))
+  {
+    ROS_WARN("tool_frame not set");
+    return 0;
+  }
+
+  std::vector<std::string> planners;
+  if (!nh.getParam("planners",planners))
   {
     ROS_WARN("move_group not found. Exit.");
     return 0;
@@ -109,24 +110,81 @@ int main(int argc, char** argv)
       std::cout << " - " << planners.at(idx) << "\n";
   }
 
-  ros::ServiceClient occupancy_srv = node_handle.serviceClient<std_srvs::Empty>("update_occupancy");
+  std::string planner_baseline;
+  if (!nh.getParam("planner_baseline",planner_baseline))
+  {
+    ROS_WARN("Baseline planner not found. Exit.");
+    return 0;
+  }
+
+  /* add baseline planner as first planner */
+  planners.insert(planners.begin(), planner_baseline);
+
+  double planning_time_baseline=20;
+  if (!nh.getParam("planning_time_baseline",planning_time_baseline))
+    ROS_WARN("planning_time_baseline not found. Default: %f", planning_time_baseline);
+
+  int reps_query=1;
+  if (!nh.getParam("reps_query",reps_query))
+    ROS_WARN("reps_query not found. Default: %d", reps_query);
+
+  bool limit_goal_workspace=false;
+  std::vector<double> box_center(3,0);
+  std::vector<double> box_size(3,10000);
+  if (nh.getParam("limit_goal_workspace",limit_goal_workspace))
+  {
+    if (!nh.getParam("ws_limits/box_center",box_center))
+    {
+      ROS_ERROR("limit_goal_workspace is active but no box_center found. Exit.");
+      return 0;
+    }
+    if (!nh.getParam("ws_limits/box_size",box_size))
+    {
+      ROS_ERROR("limit_goal_workspace is active but no box_size found. Exit.");
+      return 0;
+    }
+    ROS_INFO("workspace limitation activated");
+  }
+
+  double minimum_distance_from_start_to_goal;
+  if (!nh.getParam("minimum_distance_from_start_to_goal",minimum_distance_from_start_to_goal))
+    minimum_distance_from_start_to_goal=0.0;
+
+  ros::ServiceClient occupancy_srv = nh.serviceClient<std_srvs::Empty>("update_occupancy");
   if (!occupancy_srv.waitForExistence())
   {
     ROS_ERROR("Occupancy service not advertised. Abort.");
     return 0;
   }
 
+  /* Set static params */
+
+  pnh.setParam("planners",planners);
+  pnh.setParam("repetitions",reps_query);
+  pnh.setParam("planning_group",planning_group);
+  pnh.setParam("planning_time_baseline",planning_time_baseline);
+  pnh.setParam("planning_time",planning_time);
+  pnh.setParam("planning_trials",planning_trials);
+
+  pnh.setParam("queries_executed",0);
 
   moveit::planning_interface::MoveGroupInterface move_group(planning_group);
   robot_model_loader::RobotModelLoader robot_model_loader("robot_description");
   robot_model::RobotModelPtr       kinematic_model = robot_model_loader.getModel();
-  planning_scene::PlanningScenePtr planning_scene = std::make_shared<planning_scene::PlanningScene>(kinematic_model);
   moveit::core::JointModelGroup* jmg=kinematic_model->getJointModelGroup(planning_group);
+  moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
 
+  /* Create and update planning scene */
 
-  move_group.setPlanningTime(planning_time);
+  ros::ServiceClient ps_client=nh.serviceClient<moveit_msgs::GetPlanningScene>("/get_planning_scene");
+  moveit_msgs::GetPlanningScene srv;
+  ps_client.call(srv);
+  planning_scene::PlanningScenePtr planning_scene = std::make_shared<planning_scene::PlanningScene>(kinematic_model);
+  planning_scene->setPlanningSceneMsg(srv.response.scene);
+  moveit_msgs::PlanningScene scene_msg;
+  planning_scene->getPlanningSceneMsg(scene_msg);
 
-  moveit_visual_tools::MoveItVisualTools visual_tools("panda_link0");
+  moveit_visual_tools::MoveItVisualTools visual_tools(tool_frame);
   visual_tools.deleteAllMarkers();
 
   std::map<int, rviz_visual_tools::colors> color_map;
@@ -135,31 +193,8 @@ int main(int argc, char** argv)
   color_map[2] = rviz_visual_tools::GREEN;
   color_map[3] = rviz_visual_tools::MAGENTA;
 
-//  planning_pipeline::PlanningPipelinePtr planning_pipeline(new planning_pipeline::PlanningPipeline(robot_model, pnh, "/move_group/planning_plugin", "/move_group/request_adapters"));
-//  moveit::core::JointModelGroup* jmg=robot_model->getJointModelGroup(group_name);
-
-//  actionlib::SimpleActionClient<control_msgs::FollowJointTrajectoryAction> ac("/"+group_name+"/follow_joint_trajectory",true);
-
-//  if (!ac.waitForServer())
-//  {
-//    ROS_ERROR("unable to conenct with execution server");
-//    return 0;
-//  }
-
-//  control_msgs::FollowJointTrajectoryGoal trj_goal;
-
-//  std::string what;
-
-//  planning_scene::PlanningScenePtr scene=planning_scene::PlanningScene::clone(psm.getPlanningScene());
-//  moveit_msgs::PlanningScene scene_msg;
-//  scene->getPlanningSceneMsg(scene_msg);
-//  ROS_INFO_STREAM("scene\n"<<scene_msg.robot_state.joint_state);
-//  robot_state::RobotState state(scene->getCurrentState());
-
-
-
-
   /* Results */
+
   std::vector<int> failure;
   std::vector<double> path_length;
   std::vector<double> exec_time;
@@ -179,22 +214,30 @@ int main(int argc, char** argv)
   moveit::core::RobotStatePtr start_state =  move_group.getCurrentState();
   moveit::core::RobotStatePtr target_state =  move_group.getCurrentState();
 
-  //move_group.setStartState(*start_state);
+  /* LOOP */
 
   move_group.setStartStateToCurrentState();
+
+  ros::Duration(2.0).sleep();
 
   for (unsigned int i_trial=0;i_trial<planning_trials;i_trial++)
   {
     start_state=move_group.getCurrentState();
-//    ROS_WARN_STREAM("start state (begin): " << *start_state);
 
     bool is_valid=false;
     unsigned int i_try=0;
     while(!is_valid)
     {
+      if (i_try++>1000)
+      {
+        ROS_FATAL("Cannot find valid target. Exit.");
+        return 0;
+      }
+
       target_state->setToRandomPositions();
       target_state->update();
       target_state->updateCollisionBodyTransforms();
+
       if (!target_state->satisfiesBounds())
       {
         ROS_DEBUG("Target state is out of bound");
@@ -205,16 +248,59 @@ int main(int argc, char** argv)
         ROS_DEBUG("Target state is in collision");
         continue;
       }
-      else
-        is_valid=true;
-      if (i_try++>100)
+      else if (planning_scene->isStateColliding(*target_state,planning_group))
       {
-        ROS_FATAL("Cannot find valid target. Exit.");
-        return 0;
+        ROS_DEBUG("Target state is in collision");
+        continue;
       }
+      else
+      {
+        is_valid=true;
+      }
+
+      if (limit_goal_workspace)
+      {
+        Eigen::Isometry3d target_pose = target_state->getFrameTransform(tool_frame);
+        Eigen::VectorXd target_position = target_pose.translation();
+
+        if (not (target_position(0)<=box_center.at(0)+0.5*box_size.at(0) &&
+            target_position(0)>=box_center.at(0)-0.5*box_size.at(0) &&
+            target_position(1)<=box_center.at(1)+0.5*box_size.at(1) &&
+            target_position(1)>=box_center.at(1)-0.5*box_size.at(1) &&
+            target_position(2)<=box_center.at(2)+0.5*box_size.at(2) &&
+            target_position(2)>=box_center.at(2)-0.5*box_size.at(2) ) )
+        {
+          ROS_DEBUG("Target state out of custom workspace limits");
+          is_valid=false;
+          continue;
+        }
+        else
+        {
+          is_valid=true;
+        }
+      }
+
+      if (minimum_distance_from_start_to_goal>0)
+      {
+        Eigen::VectorXd target_position = target_state->getFrameTransform(tool_frame).translation();
+        Eigen::VectorXd start_position = start_state->getFrameTransform(tool_frame).translation();
+
+        if ((target_position-start_position).norm() <= minimum_distance_from_start_to_goal)
+        {
+          ROS_DEBUG("Target state out of custom workspace limits");
+          is_valid=false;
+          continue;
+        }
+        else
+        {
+          is_valid=true;
+        }
+      }
+      ROS_INFO_STREAM("Valid goal found at iteration " << i_try);
     }
 
     /* Change occupancy */
+
     std_srvs::Empty srv;
     if (!occupancy_srv.call(srv))
     {
@@ -223,147 +309,135 @@ int main(int argc, char** argv)
 
     visual_tools.deleteAllMarkers();
 
-    /* Plan and execute */
-
-    for(std::size_t i_pl = 0; i_pl < planners.size(); ++i_pl)
+    for (std::size_t i_rep = 0; i_rep < reps_query; i_rep++)
     {
-      std::string planner = planners[i_pl];
 
-      move_group.setPlannerId(planner);
-      ROS_ERROR("planner_id=%s", move_group.getPlannerId().c_str());
-
-      current_state=move_group.getCurrentState();
-
-      move_group.setStartStateToCurrentState();
-      move_group.setJointValueTarget(*target_state);
-      move_group.setPlanningTime(planning_time);
-
-      std::vector<double> tmp_std = move_group.getCurrentJointValues();
-      Eigen::VectorXd tmp;
-      tmp.resize(tmp_std.size());
-      for (unsigned int idx=0;idx<tmp_std.size();idx++)
-        tmp(idx) = tmp_std.at(idx);
-
-
-//      ROS_INFO_STREAM("start state: " << tmp);
-
-      target_state->copyJointGroupPositions(planning_group,tmp);
-//      ROS_INFO_STREAM("target state: " << tmp )  ;
-
-      moveit::planning_interface::MoveGroupInterface::Plan plan;
-
-      /* Plan and execute */
-      bool success = (move_group.plan(plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
-      if (!success)
-        ROS_INFO_NAMED("Hamp", "Planning %s failed at trial %u", planner.c_str(), i_trial);
-      else
+      for(std::size_t i_pl = 0; i_pl < planners.size(); ++i_pl)
       {
-        visual_tools.publishTrajectoryLine(plan.trajectory_,jmg,color_map[i_pl]);
-        visual_tools.trigger();
+        std::string planner = planners[i_pl];
 
-        ros::Time t0 = ros::Time::now();
-        success = (move_group.execute(plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
-        exec_time[i_pl] = (ros::Time::now() - t0).toSec();
-        path_length[i_pl]=trajectory_processing::computeTrajectoryLength(plan.trajectory_.joint_trajectory);
-        //std::cout << "path length= " << path_length[i_pl];
-        if (!success)
-          ROS_INFO_NAMED("Hamp", "Executing %s failed at trial %u", planner.c_str(), i_trial);
+        move_group.setPlannerId(planner);
+        move_group.setPlanningTime(planning_time);
+
+        current_state=move_group.getCurrentState();
+
+        move_group.setStartStateToCurrentState();
+        move_group.setJointValueTarget(*target_state);
+
+        std::vector<double> tmp_std = move_group.getCurrentJointValues();
+        Eigen::VectorXd tmp;
+        tmp.resize(tmp_std.size());
+        for (unsigned int idx=0;idx<tmp_std.size();idx++)
+          tmp(idx) = tmp_std.at(idx);
+
+        target_state->copyJointGroupPositions(planning_group,tmp);
+
+        moveit::planning_interface::MoveGroupInterface::Plan plan;
+
+        /* Plan and execute */
+
+        moveit::planning_interface::MoveItErrorCode plan_exit_code = move_group.plan(plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS;
+
+        bool success=0;
+        if (plan_exit_code==1)
+          success=1;
         else
-          ROS_INFO_NAMED("Hamp", "%s trial %u : %s", planner.c_str(), i_trial, success ? "SUCCESS" : "FAILED");
-      }
+          success=0;
 
-      ros::Duration(0.5).sleep();
-      move_group.stop();
-
-      if (!success)
-      {
-        failure[i_pl]=1;
-        exec_time[i_pl]=0.0;
-        path_length[i_pl]=0.0;
-      }
-      else
-        failure[i_pl]=0;
-
-      current_state = move_group.getCurrentState();
-      move_group.setStartStateToCurrentState();
-
-
-      tmp_std = move_group.getCurrentJointValues();
-      for (unsigned int idx=0;idx<tmp_std.size();idx++)
-        tmp(idx)=tmp_std.at(idx);
-
-//      ROS_INFO_STREAM("current state: " << tmp);
-
-      /* Going back to previous starting point */
-      if (planner.compare(planners.back()))
-      {
-        move_group.setJointValueTarget(*start_state);
-        success = (move_group.plan(plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
         if (!success)
         {
-          ROS_INFO_NAMED("Hamp", "Failing at planning back to start config, trial %u", i_trial);
-          continue;
-        }
-        success = (move_group.execute(plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
-        if (!success)
-        {
-          ROS_INFO_NAMED("Hamp", "Failing at moving back to start config, trial %u", i_trial);
-          continue;
+          ROS_DEBUG("Planning %s failed at trial %u", planner.c_str(), i_trial);
         }
         else
         {
-          ROS_INFO_NAMED("Hamp", "Back to home ok, trial %u", i_trial);
-          tmp_std = move_group.getCurrentJointValues();
-          Eigen::VectorXd tmp;
-          tmp.resize(tmp_std.size());
-          for (unsigned int idx=0;idx<tmp_std.size();idx++)
-            tmp(idx) = tmp_std.at(idx);
-          //ROS_INFO_STREAM("current state: " << tmp);
+          visual_tools.publishTrajectoryLine(plan.trajectory_,jmg,color_map[i_pl]);
+          visual_tools.trigger();
+
+          ros::Time t0 = ros::Time::now();
+          moveit::planning_interface::MoveItErrorCode exec_exit_code = move_group.execute(plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS;
+
+          if (exec_exit_code==1)
+            success=1;
+          else
+            success=0;
+
+          exec_time[i_pl] = (ros::Time::now() - t0).toSec();
+          path_length[i_pl]=trajectory_processing::computeTrajectoryLength(plan.trajectory_.joint_trajectory);
+
+          if (!success)
+            ROS_DEBUG("Executing %s failed at trial %u", planner.c_str(), i_trial);
+          else
+            ROS_DEBUG("%s trial %u : %s", planner.c_str(), i_trial, success ? "SUCCESS" : "FAILED");
         }
-      }
-      else
-      {
-        ROS_WARN_STREAM("not going home. Planner: " << planner << ". Planner back: " << planners.back() );
-        std::cout << planner.compare(planners.back()) << "\n";
-      }
 
+        ros::Duration(1.0).sleep();
+        move_group.stop();
 
-      ros::Duration(0.5).sleep();
-      move_group.stop();
+        if (!success)
+        {
+          failure[i_pl]=1;
+          exec_time[i_pl]=0.0;
+          path_length[i_pl]=0.0;
+        }
+        else
+        {
+          failure[i_pl]=0;
+        }
 
-    }
+        /* Save results to param */
 
-    /* Save to file */
-    results_file.open (filename, std::ios_base::app);
-    for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
-    {
-      results_file << exec_time[i_pl] << "\t" << path_length[i_pl] << "\t" << failure[i_pl];
-    }
-    results_file << "\n";
-    results_file.close();
+        std::string result_prefix="query_"+std::to_string(i_trial)+"/"+planner+"/repetition_"+std::to_string(i_rep);
 
-    /* Printo to video */
-    std::cout << "Execution time:";
-    for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
-    {
-      std::cout << "\t" << exec_time[i_pl];
-    }
+        pnh.setParam(result_prefix+"/prefix",result_prefix);
+        pnh.setParam(result_prefix+"/trajectory_nominal_time",plan.trajectory_.joint_trajectory.points.back().time_from_start.toSec());
+        pnh.setParam(result_prefix+"/trajectory_time",exec_time[i_pl]);
+        pnh.setParam(result_prefix+"/trajectory_length",path_length[i_pl]);
+        pnh.setParam(result_prefix+"/planning_time",plan.planning_time_);
+        pnh.setParam(result_prefix+"/outcome",success);
+        pnh.setParam(result_prefix+"/average_slowdown",exec_time[i_pl]/plan.trajectory_.joint_trajectory.points.back().time_from_start.toSec());
 
-    std::cout << "\nPath length:";
-    for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
-    {
-      std::cout << "\t" << path_length[i_pl];
-    }
+        ROS_INFO_STREAM("Query: " << i_trial << ".\t Rep: " << i_rep << ".\t Planner: " << planner << ".\t\t Outcome: " << success << ".\t Nominal time: " << plan.trajectory_.joint_trajectory.points.back().time_from_start.toSec() << ".\t Time: " << exec_time[i_pl] << ".\t Length: " << path_length[i_pl]);
 
-    std::cout << "\nFailure:";
-    for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
-    {
-      std::cout << "\t" << failure[i_pl];
-    }
-    std::cout << "\n";
+        current_state = move_group.getCurrentState();
+        move_group.setStartStateToCurrentState();
 
+        /* Going back to previous starting point */
 
-    /* Calculate mean and variance */
+        if (!planner.compare(planners.back()) && i_rep==reps_query-1)
+        {
+          ROS_DEBUG_STREAM("not going home. Planner: " << planner << ", repetition: " << i_rep );
+          std::cout << planner.compare(planners.back()) << "\n";
+        }
+        else
+        {
+          move_group.setJointValueTarget(*start_state);
+          moveit::planning_interface::MoveItErrorCode exit_code = move_group.plan(plan);
+          if (exit_code!=1)
+          {
+            ROS_INFO("Failing at planning back to start config, trial %u", i_trial);
+            continue;
+          }
+          exit_code = move_group.execute(plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS;
+          if (exit_code!=1)
+          {
+            ROS_INFO("Failing at moving back to start config, trial %u", i_trial);
+            continue;
+          }
+          else
+          {
+            ROS_DEBUG("Back to home ok, trial %u", i_trial);
+          }
+        }
+
+        ros::Duration(1.0).sleep();
+        move_group.stop();
+
+      } // for planners
+
+    } // for repetitions
+
+    /* Calculate mean and variance for video print */
+
     for(int i_pl = 0; i_pl < planners.size(); ++i_pl)
     {
       if (failure[0]==0)
@@ -381,7 +455,12 @@ int main(int argc, char** argv)
       if (failure[i_pl]==1)
         failure_cum[i_pl]++;
     }
-  }
+
+    pnh.setParam("queries_executed",int(i_trial+1)); // update param of executed queries
+
+    system("rosparam dump hamp_result.yaml /hamp");
+
+  } // for queries
 
   std::cout << std::setprecision(4) << std::fixed;
   std::cout << "\n****************************************************\n";

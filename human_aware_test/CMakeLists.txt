@@ -28,8 +28,14 @@ target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
 )
 
-add_executable(multigoal_test_node src/multigoal_test_node.cpp)
-add_dependencies(multigoal_test_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(multigoal_test_node
-  ${catkin_LIBRARIES}
-)
+#add_executable(run_tests_node src/run_tests_node.cpp)
+#add_dependencies(run_tests_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#target_link_libraries(run_tests_node
+#  ${catkin_LIBRARIES}
+#)
+
+#add_executable(multigoal_test_node src/multigoal_test_node.cpp)
+#add_dependencies(multigoal_test_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#target_link_libraries(multigoal_test_node
+#  ${catkin_LIBRARIES}
+#)

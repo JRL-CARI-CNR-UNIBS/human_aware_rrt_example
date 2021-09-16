@@ -4,6 +4,7 @@
 
 sensor_msgs::PointCloud pc;
 geometry_msgs::PoseArray array;
+double cone_radius;
 
 bool updateOccupancyFcn(std_srvs::Empty::Request  &req,
          std_srvs::Empty::Response &res)
@@ -28,10 +29,8 @@ bool updateOccupancyFcn(std_srvs::Empty::Request  &req,
       norm+=(point.at(idx)-mu.at(idx))*(point.at(idx)-mu.at(idx));
     norm=std::sqrt(norm);
 
-    double r = 1;
-
     /* assign an occupancy probability from a linear function y=1-1/r*norm(point-x) */
-    pc.channels.at(0).values.at(idx)=std::max(0.0,1-(1/r)*norm);
+    pc.channels.at(0).values.at(idx)=std::max(0.0,1-(1/cone_radius)*norm);
 
   }
 
@@ -39,7 +38,7 @@ bool updateOccupancyFcn(std_srvs::Empty::Request  &req,
   array.poses.clear();
 
   geometry_msgs::Pose pose;
-  array.header.frame_id="panda_link0";
+  array.header.frame_id="world";
   pose.position.x=mu.at(0);
   pose.position.y=mu.at(1);
   pose.position.z=mu.at(2);
@@ -61,8 +60,9 @@ int main(int argc, char **argv)
   ros::Publisher pc_pub=nh.advertise<sensor_msgs::PointCloud>("occupancy",1);
   ros::Publisher poses_pub=nh.advertise<geometry_msgs::PoseArray>("poses",1);
 
+  geometry_msgs::PoseArray pc_pose_array;
 
-  array.header.frame_id="panda_link0";
+  pc_pose_array.header.frame_id="world";
   Eigen::Vector3d x_min;
   Eigen::Vector3d x_max;
   x_min.setConstant(-3);
@@ -84,6 +84,11 @@ int main(int argc, char **argv)
   {
     ROS_WARN("occ_radius not found");
   }
+  if (!nh.getParam("occupancy_cone_radius",cone_radius))
+  {
+    cone_radius=1;
+  }
+
 
   for (double r=0;r<=1;r+=0.05)
   {
@@ -95,12 +100,12 @@ int main(int argc, char **argv)
         pose.position.x=center.at(0)+r*radius.at(0)*std::sin(a1)*std::cos(a2);
         pose.position.y=center.at(1)+r*radius.at(1)*std::sin(a1)*std::sin(a2);
         pose.position.z=center.at(2)+r*radius.at(2)*std::cos(a1);
-        array.poses.push_back(pose);
+        pc_pose_array.poses.push_back(pose);
       }
     }
   }
 
-  grid.update(array);
+  grid.update(pc_pose_array);
   pc=grid.toPointCloud();
 
   ROS_INFO("PointCloud Occupancy server ready.");

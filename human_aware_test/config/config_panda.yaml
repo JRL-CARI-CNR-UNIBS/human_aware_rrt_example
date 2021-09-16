@@ -1,0 +1,44 @@
+move_group_name: panda_arm
+
+planning_trials: 20
+reps_query: 3
+
+planning_time: 50.0
+planners:
+- timebased
+- hamp_timebased
+- mg2
+
+planner_baseline: mg1  # Note: this planner should not be present in "planners"
+planning_time_baseline: 100
+
+#- probabilistic_hamp_time_based
+
+occ_center:
+- 0
+- 0
+- 0.5
+
+occ_radius:
+- 1
+- 1
+- 0.5
+
+filename_results: /home/hypatia/.ros/hamp_results_1.csv
+
+#obstacles:
+#  - {name: "column_1", position: [0.5 0.5 0.0],  size: [0.3 0.3 1.0]}
+#  - {name: "column_2", position: [-0.5 0.5 0.0], size: [0.3 0.3 1.0]}
+
+obst_names: ["column_1","column_2","column_3"]
+
+obstacles:
+  column_1:
+    position: [0.5, 0.5, 0.5]
+    size: [0.4, 0.4, 1.0]
+  column_2:
+    position: [-0.5, 0.5, 0.5]
+    size: [0.4, 0.4, 1.0]
+  column_3:
+    position: [0, -0.707, 0.5]
+    size: [0.4, 0.4, 1.0]
