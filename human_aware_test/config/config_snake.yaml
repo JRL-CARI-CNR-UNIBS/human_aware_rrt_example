@@ -2,7 +2,7 @@ move_group_name: manipulator
 tool_frame: flange
 
 planning_trials: 50
-reps_query: 5
+reps_query: 2
 
 planning_time: 50
 planners:
@@ -16,7 +16,7 @@ planning_time_baseline: 50
 #- probabilistic_hamp_time_based
 
 occ_center:
-- 1
+- 1.5
 - 0
 - 1
 

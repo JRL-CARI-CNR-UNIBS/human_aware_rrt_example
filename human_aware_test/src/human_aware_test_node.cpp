@@ -436,6 +436,8 @@ int main(int argc, char** argv)
 
     } // for repetitions
 
+    std::cout << std::endl;
+
     /* Calculate mean and variance for video print */
 
     for(int i_pl = 0; i_pl < planners.size(); ++i_pl)

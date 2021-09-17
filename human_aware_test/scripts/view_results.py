@@ -16,7 +16,7 @@ import pandas as pd
 
 # Params set by user
 load_from_parameter_server=True     # load current rosparam (for online analysis)
-only_if_different=False             # skip results that are equal to the baseline (i.e. hamp was not activated)
+only_if_different=True             # skip results that are equal to the baseline (i.e. hamp was not activated)
 itp_delay=0.35                      # delay of the time parametrization (used to adjust the scaling values)
 
 dof=3
@@ -89,7 +89,7 @@ for iquery in range(0,queries_number):
                 slowdown_median_baseline = statistics.mean(average_slowdown)
 
         if not baseline_failed:
-            if abs(statistics.mean(lengths)-length_median_baseline)>=1e-2 or (not only_if_different): # or i_planner!=3:
+            if abs(statistics.mean(lengths)-length_median_baseline)>=1e-2 or (not only_if_different) or i_planner<2:
                 lengths_normalized[i_planner].extend( [x / length_median_baseline for x in lengths] )
                 times_exec_normalized[i_planner].extend( [x / time_exec_median_baseline for x in times_exec] )
                 times_nominal_normalized[i_planner].extend( [x / time_nominal_median_baseline for x in times_nominal] )
@@ -127,9 +127,12 @@ for ax, title, data in zip(axes, titles, datas):
                        medianprops=medianprops,
                        showmeans=True,
                        showfliers=False)
+
+
     ax.set_title(title)
     ax.yaxis.grid(True)
     colors = ['aquamarine', 'paleturquoise', 'turquoise']
+
     for patch, color in zip(bplot['boxes'], colors):
         patch.set_facecolor(color)
 
