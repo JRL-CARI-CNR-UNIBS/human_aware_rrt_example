@@ -15,7 +15,7 @@ import seaborn
 import pandas as pd
 
 # Params set by user
-load_from_parameter_server=True     # load current rosparam (for online analysis)
+load_from_parameter_server=False     # load current rosparam (for online analysis)
 only_if_different=True             # skip results that are equal to the baseline (i.e. hamp was not activated)
 itp_delay=0.35                      # delay of the time parametrization (used to adjust the scaling values)
 
@@ -114,31 +114,56 @@ datas = [length_array, time_exec_array, time_nominal_array, slowdown_array, outc
 xlabels = planner_ids
 titles=["length", "time_exec", "time_nominal", "slowdown", "success rate"]
 
+select_indices=[0,1,4]
+
 medianprops = dict(color="navy", linewidth=1.5)
 
-fig, axes = plt.subplots(nrows=1, ncols=len(datas), figsize=(15, 3.5))
+colors = ['aquamarine', 'paleturquoise', 'turquoise','blue']
 
-for ax, title, data in zip(axes, titles, datas):
-    bplot = ax.boxplot(data,
-                       notch=False,  # notch shape
-                       vert=True,  # vertical box alignment
-                       patch_artist=True,  # fill with color
-                       labels=xlabels,  # will be used to label x-ticks
-                       medianprops=medianprops,
-                       showmeans=True,
-                       showfliers=False)
-
+fig, axes = plt.subplots(nrows=1, ncols=len(select_indices), figsize=(25, 5))
+for ax,id in zip(axes,select_indices):
+    title=titles[id]
+    data=datas[id]
 
     ax.set_title(title)
-    ax.yaxis.grid(True)
-    colors = ['aquamarine', 'paleturquoise', 'turquoise']
+    ax.yaxis.grid(zorder=0)
 
-    for patch, color in zip(bplot['boxes'], colors):
-        patch.set_facecolor(color)
+    if title=="success rate":
+        print(data)
+        print([(float(sum(x))/float(len(x))) for x in data])
+        print([(sum(x)) for x in data])
+        print([(len(x)) for x in data])
+        barplot = ax.bar(range(len(xlabels)), [(float(sum(x))/float(len(x))) for x in data],
+                         tick_label = xlabels,
+                         color = colors,
+                         edgecolor="black",
+                         fill=True,
+                         zorder=3)
+
+    else:
+        bplot = ax.boxplot(data,
+                           notch=False,  # notch shape
+                           vert=True,  # vertical box alignment
+                           patch_artist=True,  # fill with color
+                           labels=xlabels,  # will be used to label x-ticks
+                           medianprops=medianprops,
+                           showmeans=True,
+                           showfliers=False)
+        for patch, color in zip(bplot['boxes'], colors):
+            patch.set_facecolor(color)
+
+
+
 
     print(title+":")
-    for i_pl,planner in enumerate(data):
-        print( "\t" + xlabels[i_pl]+": " + "{:.3f}".format(statistics.mean(planner)) + " \pm "+ "{:.4f}".format(statistics.stdev(planner)) )
+    if title == "success rate":
+        print("\t" + xlabels[i_pl] + ": " + "{:.3f}".format(sum(planner) / len(planner)))
+    else:
+        for i_pl,planner in enumerate(data):
+            print( "\t" + xlabels[i_pl]+": " + "{:.3f}".format(statistics.mean(planner)) + " \pm "+ "{:.4f}".format(statistics.stdev(planner)) )
+
+
+
 
 #plt.ylim([0.999,1.001])
 

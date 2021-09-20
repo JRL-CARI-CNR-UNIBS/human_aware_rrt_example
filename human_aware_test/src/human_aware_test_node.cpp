@@ -377,7 +377,6 @@ int main(int argc, char** argv)
         {
           failure[i_pl]=1;
           exec_time[i_pl]=0.0;
-          path_length[i_pl]=0.0;
         }
         else
         {
