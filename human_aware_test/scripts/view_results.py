@@ -129,10 +129,6 @@ for ax,id in zip(axes,select_indices):
     ax.yaxis.grid(zorder=0)
 
     if title=="success rate":
-        print(data)
-        print([(float(sum(x))/float(len(x))) for x in data])
-        print([(sum(x)) for x in data])
-        print([(len(x)) for x in data])
         barplot = ax.bar(range(len(xlabels)), [(float(sum(x))/float(len(x))) for x in data],
                          tick_label = xlabels,
                          color = colors,
@@ -148,6 +144,7 @@ for ax,id in zip(axes,select_indices):
                            labels=xlabels,  # will be used to label x-ticks
                            medianprops=medianprops,
                            showmeans=True,
+                           widths=0.8,
                            showfliers=False)
         for patch, color in zip(bplot['boxes'], colors):
             patch.set_facecolor(color)
@@ -157,7 +154,8 @@ for ax,id in zip(axes,select_indices):
 
     print(title+":")
     if title == "success rate":
-        print("\t" + xlabels[i_pl] + ": " + "{:.3f}".format(sum(planner) / len(planner)))
+        for i_pl, planner in enumerate(data):
+            print("\t" + xlabels[i_pl] + ": " + "{:.3f}".format(float(sum(planner)) / float(len(planner))))
     else:
         for i_pl,planner in enumerate(data):
             print( "\t" + xlabels[i_pl]+": " + "{:.3f}".format(statistics.mean(planner)) + " \pm "+ "{:.4f}".format(statistics.stdev(planner)) )
