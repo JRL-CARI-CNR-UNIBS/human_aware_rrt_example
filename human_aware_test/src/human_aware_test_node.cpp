@@ -240,17 +240,17 @@ int main(int argc, char** argv)
 
       if (!target_state->satisfiesBounds())
       {
-        ROS_DEBUG("Target state is out of bound");
+        ROS_INFO("Target state is out of bound");
         continue;
       }
       else if (!planning_scene->isStateValid(*target_state,planning_group))
       {
-        ROS_DEBUG("Target state is in collision");
+        ROS_INFO("Target state is in collision");
         continue;
       }
       else if (planning_scene->isStateColliding(*target_state,planning_group))
       {
-        ROS_DEBUG("Target state is in collision");
+        ROS_INFO("Target state is in collision");
         continue;
       }
       else
@@ -270,7 +270,7 @@ int main(int argc, char** argv)
             target_position(2)<=box_center.at(2)+0.5*box_size.at(2) &&
             target_position(2)>=box_center.at(2)-0.5*box_size.at(2) ) )
         {
-          ROS_DEBUG("Target state out of custom workspace limits");
+          ROS_INFO("Target state out of custom workspace limits");
           is_valid=false;
           continue;
         }
@@ -287,7 +287,7 @@ int main(int argc, char** argv)
 
         if ((target_position-start_position).norm() <= minimum_distance_from_start_to_goal)
         {
-          ROS_DEBUG("Target state out of custom workspace limits");
+          ROS_INFO("Target state out of custom workspace limits");
           is_valid=false;
           continue;
         }

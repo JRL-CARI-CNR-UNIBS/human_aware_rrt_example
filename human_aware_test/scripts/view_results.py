@@ -15,7 +15,7 @@ import seaborn
 import pandas as pd
 
 # Params set by user
-load_from_parameter_server=False     # load current rosparam (for online analysis)
+load_from_parameter_server=True     # load current rosparam (for online analysis)
 only_if_different=True             # skip results that are equal to the baseline (i.e. hamp was not activated)
 itp_delay=0.35                      # delay of the time parametrization (used to adjust the scaling values)
 
@@ -88,8 +88,8 @@ for iquery in range(0,queries_number):
                 time_nominal_median_baseline = statistics.mean(times_nominal)
                 slowdown_median_baseline = statistics.mean(average_slowdown)
 
-        if not baseline_failed:
-            if abs(statistics.mean(lengths)-length_median_baseline)>=1e-2 or (not only_if_different) or i_planner<2:
+        if not baseline_failed and len(lengths)>0:
+            if abs(statistics.mean(lengths)-length_median_baseline)>=1e-2 or (not only_if_different) or i_planner<3:
                 lengths_normalized[i_planner].extend( [x / length_median_baseline for x in lengths] )
                 times_exec_normalized[i_planner].extend( [x / time_exec_median_baseline for x in times_exec] )
                 times_nominal_normalized[i_planner].extend( [x / time_nominal_median_baseline for x in times_nominal] )

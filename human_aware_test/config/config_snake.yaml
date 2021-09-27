@@ -37,5 +37,5 @@ ws_limits:
     - 1
   box_size:
     - 2
-    - 4
+    - 2
     - 2
