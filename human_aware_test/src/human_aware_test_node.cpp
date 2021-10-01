@@ -309,7 +309,7 @@ int main(int argc, char** argv)
 
     visual_tools.deleteAllMarkers();
 
-    bool all_planners_failed=false;
+    bool all_planners_failed=true;
 
     for (std::size_t i_rep = 0; i_rep < reps_query; i_rep++)
     {
