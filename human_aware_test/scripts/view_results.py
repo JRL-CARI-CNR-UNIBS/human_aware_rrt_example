@@ -102,8 +102,11 @@ time_nominal_array=[]
 slowdown_array=[]
 outcome_array=[]
 
+
+gain_lengths=[1,1,1,1]
+
 for i_planner,planner in enumerate(planner_ids):
-    length_array.append(lengths_normalized[i_planner])
+    length_array.append( [ x*gain_lengths[i_planner] for x in lengths_normalized[i_planner] ] )
     time_exec_array.append(times_exec_normalized[i_planner])
     time_nominal_array.append(times_nominal_normalized[i_planner])
     slowdown_array.append(slowdowns_normalized[i_planner])
