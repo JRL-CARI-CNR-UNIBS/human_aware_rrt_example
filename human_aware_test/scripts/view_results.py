@@ -16,7 +16,7 @@ import pandas as pd
 
 # Params set by user
 load_from_parameter_server=True     # load current rosparam (for online analysis)
-only_if_different=True             # skip results that are equal to the baseline (i.e. hamp was not activated)
+only_if_different=False             # skip results that are equal to the baseline (i.e. hamp was not activated)
 itp_delay=0.35                      # delay of the time parametrization (used to adjust the scaling values)
 
 dof=3
@@ -83,13 +83,13 @@ for iquery in range(0,queries_number):
                 baseline_failed=True
             else:
                 baseline_failed = False
-                length_median_baseline=statistics.mean(lengths)
-                time_exec_median_baseline = statistics.mean(times_exec)
-                time_nominal_median_baseline = statistics.mean(times_nominal)
-                slowdown_median_baseline = statistics.mean(average_slowdown)
+                length_median_baseline=statistics.median(lengths)
+                time_exec_median_baseline = statistics.median(times_exec)
+                time_nominal_median_baseline = statistics.median(times_nominal)
+                slowdown_median_baseline = statistics.median(average_slowdown)
 
         if not baseline_failed and len(lengths)>0:
-            if abs(statistics.mean(lengths)-length_median_baseline)>=1e-2 or (not only_if_different) or i_planner<3:
+            if abs(statistics.mean(lengths)-length_median_baseline)>=1e-2 or (not only_if_different) or i_planner<1:
                 lengths_normalized[i_planner].extend( [x / length_median_baseline for x in lengths] )
                 times_exec_normalized[i_planner].extend( [x / time_exec_median_baseline for x in times_exec] )
                 times_nominal_normalized[i_planner].extend( [x / time_nominal_median_baseline for x in times_nominal] )
@@ -114,7 +114,7 @@ datas = [length_array, time_exec_array, time_nominal_array, slowdown_array, outc
 xlabels = planner_ids
 titles=["length", "time_exec", "time_nominal", "slowdown", "success rate"]
 
-select_indices=[0,1,4]
+select_indices=[0,1,3,4]
 
 medianprops = dict(color="navy", linewidth=1.5)
 
@@ -145,7 +145,7 @@ for ax,id in zip(axes,select_indices):
                            medianprops=medianprops,
                            showmeans=True,
                            widths=0.8,
-                           showfliers=False)
+                           showfliers=True)
         for patch, color in zip(bplot['boxes'], colors):
             patch.set_facecolor(color)
 
