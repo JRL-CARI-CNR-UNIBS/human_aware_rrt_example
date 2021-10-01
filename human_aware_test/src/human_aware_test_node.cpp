@@ -309,12 +309,34 @@ int main(int argc, char** argv)
 
     visual_tools.deleteAllMarkers();
 
+    bool all_planners_failed=false;
+
     for (std::size_t i_rep = 0; i_rep < reps_query; i_rep++)
     {
 
       for(std::size_t i_pl = 0; i_pl < planners.size(); ++i_pl)
       {
+
         std::string planner = planners[i_pl];
+
+        if (i_rep>=2 && all_planners_failed)
+        {
+          ROS_WARN("All planners failed this query twice. Move to the next query.");
+
+          std::string result_prefix="query_"+std::to_string(i_trial)+"/"+planner+"/repetition_"+std::to_string(i_rep);
+
+          pnh.setParam(result_prefix+"/prefix",result_prefix);
+          pnh.setParam(result_prefix+"/trajectory_nominal_time",0.0);
+          pnh.setParam(result_prefix+"/trajectory_time",0.0);
+          pnh.setParam(result_prefix+"/trajectory_length",0.0);
+          pnh.setParam(result_prefix+"/planning_time",0.0);
+          pnh.setParam(result_prefix+"/outcome",0);
+          pnh.setParam(result_prefix+"/average_slowdown",0.0);
+
+          continue;
+        }
+
+
 
         move_group.setPlannerId(planner);
         move_group.setPlanningTime(planning_time);
@@ -381,6 +403,7 @@ int main(int argc, char** argv)
         else
         {
           failure[i_pl]=0;
+          all_planners_failed=false;
         }
 
         /* Save results to param */
