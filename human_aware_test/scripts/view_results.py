@@ -5,6 +5,8 @@
 author: hypatia
 """
 
+
+
 import yaml
 import rospy
 import numpy as np
@@ -15,13 +17,13 @@ import seaborn
 import pandas as pd
 
 # Params set by user
-load_from_parameter_server=True    # load current rosparam (for online analysis)
+load_from_parameter_server=False    # load current rosparam (for online analysis)
 only_if_different=True              # skip results that are equal to the baseline (i.e. hamp was not activated)
-use_median=False                     # group repetitions and compute median before normalization
+use_median=True                     # group repetitions and compute median before normalization
 itp_delay=0.35                      # delay of the time parametrization (used to adjust the scaling values)
 
 dof=3
-test_name='hamp_result.yaml'
+test_name='hamp_result_20211001_2.yaml'
 
 if load_from_parameter_server:
    param=rospy.get_param("/hamp")
@@ -167,9 +169,6 @@ for ax,id in zip(axes,select_indices):
                            showfliers=True)
         for patch, color in zip(bplot['boxes'], colors):
             patch.set_facecolor(color)
-
-
-
 
     print(title+":")
     if title == "success rate":

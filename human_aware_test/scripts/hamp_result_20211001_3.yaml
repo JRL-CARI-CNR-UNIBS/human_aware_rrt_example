@@ -1,0 +1,2970 @@
+planners:
+- mixed_strategy_a
+- hamp_timebased
+- hamp_timebased_1e6
+planning_group: manipulator
+planning_time: 30.0
+planning_time_baseline: 30.0
+planning_trials: 20
+queries_executed: 20
+query_0:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 1.7851655020899022
+      outcome: true
+      planning_time: 0.9055827580000001
+      prefix: query_0/hamp_timebased/repetition_0
+      trajectory_length: 1.5325992150620777
+      trajectory_nominal_time: 2.404954102
+      trajectory_time: 4.293241097
+    repetition_1:
+      average_slowdown: 1.8023889066666323
+      outcome: true
+      planning_time: 0.334963706
+      prefix: query_0/hamp_timebased/repetition_1
+      trajectory_length: 1.5316860352009345
+      trajectory_nominal_time: 2.421498454
+      trajectory_time: 4.364481951
+    repetition_2:
+      average_slowdown: 1.826146270572216
+      outcome: true
+      planning_time: 4.847276972
+      prefix: query_0/hamp_timebased/repetition_2
+      trajectory_length: 1.5299973665674496
+      trajectory_nominal_time: 2.492935978
+      trajectory_time: 4.5524657390000005
+    repetition_3:
+      average_slowdown: 1.7910265123295723
+      outcome: true
+      planning_time: 13.490783291
+      prefix: query_0/hamp_timebased/repetition_3
+      trajectory_length: 1.5283929622244679
+      trajectory_nominal_time: 2.405845998
+      trajectory_time: 4.308933967
+    repetition_4:
+      average_slowdown: 1.830840246001337
+      outcome: true
+      planning_time: 12.413579018
+      prefix: query_0/hamp_timebased/repetition_4
+      trajectory_length: 1.5271399817429319
+      trajectory_nominal_time: 2.450563105
+      trajectory_time: 4.486589558
+    repetition_5:
+      average_slowdown: 1.771858393520459
+      outcome: true
+      planning_time: 2.03667855
+      prefix: query_0/hamp_timebased/repetition_5
+      trajectory_length: 1.5304786376693897
+      trajectory_nominal_time: 2.406049166
+      trajectory_time: 4.26317841
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 1.8116077943854212
+      outcome: true
+      planning_time: 7.623770665
+      prefix: query_0/hamp_timebased_1e6/repetition_0
+      trajectory_length: 1.5293906104086927
+      trajectory_nominal_time: 2.415630814
+      trajectory_time: 4.376175611
+    repetition_1:
+      average_slowdown: 1.8143185064777219
+      outcome: true
+      planning_time: 14.946790199
+      prefix: query_0/hamp_timebased_1e6/repetition_1
+      trajectory_length: 1.5267063039546174
+      trajectory_nominal_time: 2.398551808
+      trajectory_time: 4.351736934
+    repetition_2:
+      average_slowdown: 1.8252134246661267
+      outcome: true
+      planning_time: 1.756395043
+      prefix: query_0/hamp_timebased_1e6/repetition_2
+      trajectory_length: 1.5312048779676832
+      trajectory_nominal_time: 2.434880815
+      trajectory_time: 4.444177151
+    repetition_3:
+      average_slowdown: 1.884755167236974
+      outcome: true
+      planning_time: 1.409663835
+      prefix: query_0/hamp_timebased_1e6/repetition_3
+      trajectory_length: 1.5294296698491885
+      trajectory_nominal_time: 2.382936531
+      trajectory_time: 4.49125194
+    repetition_4:
+      average_slowdown: 1.811125870721099
+      outcome: true
+      planning_time: 4.936830952
+      prefix: query_0/hamp_timebased_1e6/repetition_4
+      trajectory_length: 1.5267570398654933
+      trajectory_nominal_time: 2.408945014
+      trajectory_time: 4.362902636
+    repetition_5:
+      average_slowdown: 1.8863381520497653
+      outcome: true
+      planning_time: 30.003171379
+      prefix: query_0/hamp_timebased_1e6/repetition_5
+      trajectory_length: 1.5340945897403122
+      trajectory_nominal_time: 2.436832332
+      trajectory_time: 4.596689798
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 2.1183446249204385
+      outcome: true
+      planning_time: 30.072300289
+      prefix: query_0/mixed_strategy_a/repetition_0
+      trajectory_length: 1.489971475476786
+      trajectory_nominal_time: 2.372937015
+      trajectory_time: 5.026698371
+    repetition_1:
+      average_slowdown: 2.1167168814255675
+      outcome: true
+      planning_time: 30.014587775
+      prefix: query_0/mixed_strategy_a/repetition_1
+      trajectory_length: 1.490205269500227
+      trajectory_nominal_time: 2.402936958
+      trajectory_time: 5.086337224
+    repetition_2:
+      average_slowdown: 2.1986167027717736
+      outcome: true
+      planning_time: 30.007609486
+      prefix: query_0/mixed_strategy_a/repetition_2
+      trajectory_length: 1.4901988323023967
+      trajectory_nominal_time: 2.361648338
+      trajectory_time: 5.192359482
+    repetition_3:
+      average_slowdown: 2.1599489591472234
+      outcome: true
+      planning_time: 30.003204589
+      prefix: query_0/mixed_strategy_a/repetition_3
+      trajectory_length: 1.4904975267670089
+      trajectory_nominal_time: 2.359685496
+      trajectory_time: 5.096800231
+    repetition_4:
+      average_slowdown: 2.1457545568139405
+      outcome: true
+      planning_time: 30.007981706
+      prefix: query_0/mixed_strategy_a/repetition_4
+      trajectory_length: 1.4904726900780971
+      trajectory_nominal_time: 2.372936089
+      trajectory_time: 5.091738426
+    repetition_5:
+      average_slowdown: 2.143959996962211
+      outcome: true
+      planning_time: 30.012289712
+      prefix: query_0/mixed_strategy_a/repetition_5
+      trajectory_length: 1.4902620267194688
+      trajectory_nominal_time: 2.372936588
+      trajectory_time: 5.08748112
+query_1:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 2.8378894305218334
+      outcome: true
+      planning_time: 30.001122612
+      prefix: query_1/hamp_timebased/repetition_0
+      trajectory_length: 0.8012308236636313
+      trajectory_nominal_time: 1.479810692
+      trajectory_time: 4.199539122
+    repetition_1:
+      average_slowdown: 3.8076337690795774
+      outcome: true
+      planning_time: 30.002655678
+      prefix: query_1/hamp_timebased/repetition_1
+      trajectory_length: 0.8012308236655238
+      trajectory_nominal_time: 1.049810692
+      trajectory_time: 3.997294642
+    repetition_2:
+      average_slowdown: 3.806908775510928
+      outcome: true
+      planning_time: 30.003244573
+      prefix: query_1/hamp_timebased/repetition_2
+      trajectory_length: 0.8012308236655241
+      trajectory_nominal_time: 1.049810692
+      trajectory_time: 3.9965335360000003
+    repetition_3:
+      average_slowdown: 3.8066009876378737
+      outcome: true
+      planning_time: 30.002332865
+      prefix: query_1/hamp_timebased/repetition_3
+      trajectory_length: 0.8012308236655241
+      trajectory_nominal_time: 1.049810692
+      trajectory_time: 3.996210417
+    repetition_4:
+      average_slowdown: 3.8077734399755947
+      outcome: true
+      planning_time: 30.002449619
+      prefix: query_1/hamp_timebased/repetition_4
+      trajectory_length: 0.8012308236655241
+      trajectory_nominal_time: 1.049810692
+      trajectory_time: 3.99744127
+    repetition_5:
+      average_slowdown: 3.807277122873882
+      outcome: true
+      planning_time: 30.003004507
+      prefix: query_1/hamp_timebased/repetition_5
+      trajectory_length: 0.8012308236655241
+      trajectory_nominal_time: 1.049810692
+      trajectory_time: 3.996920231
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 2.8346394402598643
+      outcome: true
+      planning_time: 30.003912462
+      prefix: query_1/hamp_timebased_1e6/repetition_0
+      trajectory_length: 0.8012308289354604
+      trajectory_nominal_time: 1.479810696
+      trajectory_time: 4.194729763
+    repetition_1:
+      average_slowdown: 2.836348625071343
+      outcome: true
+      planning_time: 30.002741012
+      prefix: query_1/hamp_timebased_1e6/repetition_1
+      trajectory_length: 0.80123100604528
+      trajectory_nominal_time: 1.479810818
+      trajectory_time: 4.197259379
+    repetition_2:
+      average_slowdown: 2.837245416055608
+      outcome: true
+      planning_time: 30.001386649
+      prefix: query_1/hamp_timebased_1e6/repetition_2
+      trajectory_length: 0.8012310060452799
+      trajectory_nominal_time: 1.479810818
+      trajectory_time: 4.19858646
+    repetition_3:
+      average_slowdown: 2.8367358049682805
+      outcome: true
+      planning_time: 30.001916135
+      prefix: query_1/hamp_timebased_1e6/repetition_3
+      trajectory_length: 0.8012310060452799
+      trajectory_nominal_time: 1.479810818
+      trajectory_time: 4.197832332
+    repetition_4:
+      average_slowdown: 2.8359259034691013
+      outcome: true
+      planning_time: 30.002596383
+      prefix: query_1/hamp_timebased_1e6/repetition_4
+      trajectory_length: 0.8012310060452799
+      trajectory_nominal_time: 1.479810818
+      trajectory_time: 4.196633831
+    repetition_5:
+      average_slowdown: 2.83736849868062
+      outcome: true
+      planning_time: 30.00241795
+      prefix: query_1/hamp_timebased_1e6/repetition_5
+      trajectory_length: 0.8012310060452799
+      trajectory_nominal_time: 1.479810818
+      trajectory_time: 4.198768599
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 2.836000297135195
+      outcome: true
+      planning_time: 0.0030646600000000003
+      prefix: query_1/mixed_strategy_a/repetition_0
+      trajectory_length: 0.8012316152416715
+      trajectory_nominal_time: 1.479811236
+      trajectory_time: 4.196745105
+    repetition_1:
+      average_slowdown: 2.8362064961044178
+      outcome: true
+      planning_time: 0.002623527
+      prefix: query_1/mixed_strategy_a/repetition_1
+      trajectory_length: 0.8012308289354639
+      trajectory_nominal_time: 1.479810696
+      trajectory_time: 4.197048709
+    repetition_2:
+      average_slowdown: 2.8366006086767737
+      outcome: true
+      planning_time: 0.002223352
+      prefix: query_1/mixed_strategy_a/repetition_2
+      trajectory_length: 0.8012308289354637
+      trajectory_nominal_time: 1.479810696
+      trajectory_time: 4.197631921
+    repetition_3:
+      average_slowdown: 2.836545822615138
+      outcome: true
+      planning_time: 0.0023390850000000003
+      prefix: query_1/mixed_strategy_a/repetition_3
+      trajectory_length: 0.8012308289354637
+      trajectory_nominal_time: 1.479810696
+      trajectory_time: 4.197550848
+    repetition_4:
+      average_slowdown: 2.8362427770964027
+      outcome: true
+      planning_time: 0.002532748
+      prefix: query_1/mixed_strategy_a/repetition_4
+      trajectory_length: 0.8012308289354637
+      trajectory_nominal_time: 1.479810696
+      trajectory_time: 4.197102398
+    repetition_5:
+      average_slowdown: 2.8364752838629306
+      outcome: true
+      planning_time: 0.002266601
+      prefix: query_1/mixed_strategy_a/repetition_5
+      trajectory_length: 0.8012308289354637
+      trajectory_nominal_time: 1.479810696
+      trajectory_time: 4.197446464
+query_10:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.007437561
+      prefix: query_10/hamp_timebased/repetition_0
+      trajectory_length: 1.001133038525892
+      trajectory_nominal_time: 1.406224307
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.00576073
+      prefix: query_10/hamp_timebased/repetition_1
+      trajectory_length: 1.0011330396751545
+      trajectory_nominal_time: 1.406224309
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_10/hamp_timebased/repetition_2
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_10/hamp_timebased/repetition_3
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_10/hamp_timebased/repetition_4
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_10/hamp_timebased/repetition_5
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.005352777
+      prefix: query_10/hamp_timebased_1e6/repetition_0
+      trajectory_length: 1.0010247733174058
+      trajectory_nominal_time: 1.406117655
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.007178719
+      prefix: query_10/hamp_timebased_1e6/repetition_1
+      trajectory_length: 1.0010247733167879
+      trajectory_nominal_time: 1.406117655
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_10/hamp_timebased_1e6/repetition_2
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_10/hamp_timebased_1e6/repetition_3
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_10/hamp_timebased_1e6/repetition_4
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_10/hamp_timebased_1e6/repetition_5
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 0.0036524950000000004
+      prefix: query_10/mixed_strategy_a/repetition_0
+      trajectory_length: 1.0010252876111123
+      trajectory_nominal_time: 2.176118161
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 0.003331141
+      prefix: query_10/mixed_strategy_a/repetition_1
+      trajectory_length: 1.0010247483198293
+      trajectory_nominal_time: 2.17611763
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_10/mixed_strategy_a/repetition_2
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_10/mixed_strategy_a/repetition_3
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_10/mixed_strategy_a/repetition_4
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_10/mixed_strategy_a/repetition_5
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+query_11:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.008386805
+      prefix: query_11/hamp_timebased/repetition_0
+      trajectory_length: 3.304329903255892
+      trajectory_nominal_time: 3.470922216
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.001268783
+      prefix: query_11/hamp_timebased/repetition_1
+      trajectory_length: 4.017488477519614
+      trajectory_nominal_time: 4.261455403
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_11/hamp_timebased/repetition_2
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_11/hamp_timebased/repetition_3
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_11/hamp_timebased/repetition_4
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_11/hamp_timebased/repetition_5
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.002826272
+      prefix: query_11/hamp_timebased_1e6/repetition_0
+      trajectory_length: 2.1323877313373356
+      trajectory_nominal_time: 1.7806645200000002
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.00554056
+      prefix: query_11/hamp_timebased_1e6/repetition_1
+      trajectory_length: 2.1323875604405123
+      trajectory_nominal_time: 1.78066375
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_11/hamp_timebased_1e6/repetition_2
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_11/hamp_timebased_1e6/repetition_3
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_11/hamp_timebased_1e6/repetition_4
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_11/hamp_timebased_1e6/repetition_5
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 0.003556941
+      prefix: query_11/mixed_strategy_a/repetition_0
+      trajectory_length: 2.1323885836170375
+      trajectory_nominal_time: 2.620664588
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 0.0026608730000000002
+      prefix: query_11/mixed_strategy_a/repetition_1
+      trajectory_length: 2.132387330489089
+      trajectory_nominal_time: 2.6206636469999998
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_11/mixed_strategy_a/repetition_2
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_11/mixed_strategy_a/repetition_3
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_11/mixed_strategy_a/repetition_4
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_11/mixed_strategy_a/repetition_5
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+query_12:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 2.5242348607538423
+      outcome: true
+      planning_time: 30.003603891
+      prefix: query_12/hamp_timebased/repetition_0
+      trajectory_length: 1.2622443112286177
+      trajectory_nominal_time: 1.424325906
+      trajectory_time: 3.595333105
+    repetition_1:
+      average_slowdown: 2.526106471913264
+      outcome: true
+      planning_time: 30.001743299
+      prefix: query_12/hamp_timebased/repetition_1
+      trajectory_length: 1.26224956177272
+      trajectory_nominal_time: 1.424330167
+      trajectory_time: 3.598009653
+    repetition_2:
+      average_slowdown: 2.5265326287230145
+      outcome: true
+      planning_time: 30.001406102
+      prefix: query_12/hamp_timebased/repetition_2
+      trajectory_length: 1.262249561794269
+      trajectory_nominal_time: 1.424330167
+      trajectory_time: 3.598616641
+    repetition_3:
+      average_slowdown: 2.5257057089200288
+      outcome: true
+      planning_time: 30.00240796
+      prefix: query_12/hamp_timebased/repetition_3
+      trajectory_length: 1.2622498161766866
+      trajectory_nominal_time: 1.424330374
+      trajectory_time: 3.597439357
+    repetition_4:
+      average_slowdown: 2.5259747055369988
+      outcome: true
+      planning_time: 30.002137373
+      prefix: query_12/hamp_timebased/repetition_4
+      trajectory_length: 1.2622496246001718
+      trajectory_nominal_time: 1.4243302180000001
+      trajectory_time: 3.597822103
+    repetition_5:
+      average_slowdown: 2.525916485766604
+      outcome: true
+      planning_time: 30.002207809
+      prefix: query_12/hamp_timebased/repetition_5
+      trajectory_length: 1.2622495617727174
+      trajectory_nominal_time: 1.424330167
+      trajectory_time: 3.59773905
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 2.5257028973439826
+      outcome: true
+      planning_time: 30.001795878
+      prefix: query_12/hamp_timebased_1e6/repetition_0
+      trajectory_length: 1.2622713916053772
+      trajectory_nominal_time: 1.424310653
+      trajectory_time: 3.597385543
+    repetition_1:
+      average_slowdown: 2.525500416179477
+      outcome: true
+      planning_time: 30.003204514
+      prefix: query_12/hamp_timebased_1e6/repetition_1
+      trajectory_length: 1.2621518980039819
+      trajectory_nominal_time: 1.424250912
+      trajectory_time: 3.596946271
+    repetition_2:
+      average_slowdown: 2.5263210739153608
+      outcome: true
+      planning_time: 30.001191462
+      prefix: query_12/hamp_timebased_1e6/repetition_2
+      trajectory_length: 1.2622495105241132
+      trajectory_nominal_time: 1.424330125
+      trajectory_time: 3.598315211
+    repetition_3:
+      average_slowdown: 1.9294456614584432
+      outcome: true
+      planning_time: 30.001488044
+      prefix: query_12/hamp_timebased_1e6/repetition_3
+      trajectory_length: 1.2622495100646494
+      trajectory_nominal_time: 2.020510403
+      trajectory_time: 3.898465031
+    repetition_4:
+      average_slowdown: 2.526298494880181
+      outcome: true
+      planning_time: 30.001570924
+      prefix: query_12/hamp_timebased_1e6/repetition_4
+      trajectory_length: 1.2622495104721865
+      trajectory_nominal_time: 1.424330125
+      trajectory_time: 3.598283051
+    repetition_5:
+      average_slowdown: 2.526517008828975
+      outcome: true
+      planning_time: 30.001184312
+      prefix: query_12/hamp_timebased_1e6/repetition_5
+      trajectory_length: 1.2622495100644702
+      trajectory_nominal_time: 1.424330125
+      trajectory_time: 3.598594287
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 1.9288330455180749
+      outcome: true
+      planning_time: 0.0029412960000000004
+      prefix: query_12/mixed_strategy_a/repetition_0
+      trajectory_length: 1.2621079778855966
+      trajectory_nominal_time: 2.020395548
+      trajectory_time: 3.897005698
+    repetition_1:
+      average_slowdown: 1.929109598353303
+      outcome: true
+      planning_time: 0.002450054
+      prefix: query_12/mixed_strategy_a/repetition_1
+      trajectory_length: 1.262249510037058
+      trajectory_nominal_time: 2.020510403
+      trajectory_time: 3.897786012
+    repetition_2:
+      average_slowdown: 1.9284186025657224
+      outcome: true
+      planning_time: 0.003503705
+      prefix: query_12/mixed_strategy_a/repetition_2
+      trajectory_length: 1.2621518977733066
+      trajectory_nominal_time: 2.02043119
+      trajectory_time: 3.896237092
+    repetition_3:
+      average_slowdown: 1.9291435338855631
+      outcome: true
+      planning_time: 0.0021290040000000003
+      prefix: query_12/mixed_strategy_a/repetition_3
+      trajectory_length: 1.2622004579709518
+      trajectory_nominal_time: 2.020459795
+      trajectory_time: 3.897756949
+    repetition_4:
+      average_slowdown: 1.92855840247834
+      outcome: true
+      planning_time: 0.003028986
+      prefix: query_12/mixed_strategy_a/repetition_4
+      trajectory_length: 1.262249561772719
+      trajectory_nominal_time: 2.020510445
+      trajectory_time: 3.896672396
+    repetition_5:
+      average_slowdown: 1.9285683792004864
+      outcome: true
+      planning_time: 0.00317824
+      prefix: query_12/mixed_strategy_a/repetition_5
+      trajectory_length: 1.2622495102716684
+      trajectory_nominal_time: 2.020510404
+      trajectory_time: 3.896692475
+query_13:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 1.3411191992283185
+      outcome: true
+      planning_time: 30.001413795
+      prefix: query_13/hamp_timebased/repetition_0
+      trajectory_length: 1.5932445006426676
+      trajectory_nominal_time: 2.161484228
+      trajectory_time: 2.898807997
+    repetition_1:
+      average_slowdown: 1.3400192980728056
+      outcome: true
+      planning_time: 30.002697692
+      prefix: query_13/hamp_timebased/repetition_1
+      trajectory_length: 1.5932445006556515
+      trajectory_nominal_time: 2.161484228
+      trajectory_time: 2.896430578
+    repetition_2:
+      average_slowdown: 1.3408705409253627
+      outcome: true
+      planning_time: 30.00150628
+      prefix: query_13/hamp_timebased/repetition_2
+      trajectory_length: 1.593244500655651
+      trajectory_nominal_time: 2.161484228
+      trajectory_time: 2.898270526
+    repetition_3:
+      average_slowdown: 1.3406956546157136
+      outcome: true
+      planning_time: 30.00176273
+      prefix: query_13/hamp_timebased/repetition_3
+      trajectory_length: 1.5932445006556515
+      trajectory_nominal_time: 2.161484228
+      trajectory_time: 2.8978925120000003
+    repetition_4:
+      average_slowdown: 1.3403203569431736
+      outcome: true
+      planning_time: 30.002303982
+      prefix: query_13/hamp_timebased/repetition_4
+      trajectory_length: 1.5932445006556513
+      trajectory_nominal_time: 2.161484228
+      trajectory_time: 2.897081312
+    repetition_5:
+      average_slowdown: 1.339439814316332
+      outcome: true
+      planning_time: 30.003402896
+      prefix: query_13/hamp_timebased/repetition_5
+      trajectory_length: 1.593244500642391
+      trajectory_nominal_time: 2.161484228
+      trajectory_time: 2.895178033
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 1.3408342874654253
+      outcome: true
+      planning_time: 30.003276647
+      prefix: query_13/hamp_timebased_1e6/repetition_0
+      trajectory_length: 1.5932272226471023
+      trajectory_nominal_time: 2.160154257
+      trajectory_time: 2.896408894
+    repetition_1:
+      average_slowdown: 1.341048783724921
+      outcome: true
+      planning_time: 30.002343446
+      prefix: query_13/hamp_timebased_1e6/repetition_1
+      trajectory_length: 1.5932445006423934
+      trajectory_nominal_time: 2.161484228
+      trajectory_time: 2.898655795
+    repetition_2:
+      average_slowdown: 1.3413608615446853
+      outcome: true
+      planning_time: 30.002134785
+      prefix: query_13/hamp_timebased_1e6/repetition_2
+      trajectory_length: 1.5932203965314296
+      trajectory_nominal_time: 2.160149452
+      trajectory_time: 2.89753993
+    repetition_3:
+      average_slowdown: 1.3413328055673204
+      outcome: true
+      planning_time: 30.002397621
+      prefix: query_13/hamp_timebased_1e6/repetition_3
+      trajectory_length: 1.5932272226217001
+      trajectory_nominal_time: 2.160154257
+      trajectory_time: 2.8974857700000003
+    repetition_4:
+      average_slowdown: 1.3412945814452548
+      outcome: true
+      planning_time: 30.002481512
+      prefix: query_13/hamp_timebased_1e6/repetition_4
+      trajectory_length: 1.5932272226471023
+      trajectory_nominal_time: 2.160154257
+      trajectory_time: 2.8974032000000003
+    repetition_5:
+      average_slowdown: 1.341657588699099
+      outcome: true
+      planning_time: 30.001715919
+      prefix: query_13/hamp_timebased_1e6/repetition_5
+      trajectory_length: 1.5932203965314282
+      trajectory_nominal_time: 2.160149452
+      trajectory_time: 2.8981809050000003
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 1.3407906863358414
+      outcome: true
+      planning_time: 0.002324914
+      prefix: query_13/mixed_strategy_a/repetition_0
+      trajectory_length: 1.5933881609684941
+      trajectory_nominal_time: 2.16158535
+      trajectory_time: 2.8982335050000003
+    repetition_1:
+      average_slowdown: 1.3408387533501966
+      outcome: true
+      planning_time: 0.0033066170000000004
+      prefix: query_13/mixed_strategy_a/repetition_1
+      trajectory_length: 1.5932272226363515
+      trajectory_nominal_time: 2.160154257
+      trajectory_time: 2.896418541
+    repetition_2:
+      average_slowdown: 1.3408084157019533
+      outcome: true
+      planning_time: 0.003266576
+      prefix: query_13/mixed_strategy_a/repetition_2
+      trajectory_length: 1.5932272227859356
+      trajectory_nominal_time: 2.160154257
+      trajectory_time: 2.896353007
+    repetition_3:
+      average_slowdown: 1.3411301830006301
+      outcome: true
+      planning_time: 0.0026001820000000004
+      prefix: query_13/mixed_strategy_a/repetition_3
+      trajectory_length: 1.5932272226361808
+      trajectory_nominal_time: 2.160154257
+      trajectory_time: 2.897048074
+    repetition_4:
+      average_slowdown: 1.3347573163614124
+      outcome: true
+      planning_time: 0.014541527
+      prefix: query_13/mixed_strategy_a/repetition_4
+      trajectory_length: 1.5932272226363506
+      trajectory_nominal_time: 2.160154257
+      trajectory_time: 2.8832816990000003
+    repetition_5:
+      average_slowdown: 1.3409174709466913
+      outcome: true
+      planning_time: 0.002202654
+      prefix: query_13/mixed_strategy_a/repetition_5
+      trajectory_length: 1.5932443442661766
+      trajectory_nominal_time: 2.161484118
+      trajectory_time: 2.898371817
+query_14:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 1.6023112385489362
+      outcome: true
+      planning_time: 30.002122188
+      prefix: query_14/hamp_timebased/repetition_0
+      trajectory_length: 1.537911858884927
+      trajectory_nominal_time: 2.369381301
+      trajectory_time: 3.796486287
+    repetition_1:
+      average_slowdown: 1.602627654723746
+      outcome: true
+      planning_time: 30.001790548
+      prefix: query_14/hamp_timebased/repetition_1
+      trajectory_length: 1.5379125352707586
+      trajectory_nominal_time: 2.369381846
+      trajectory_time: 3.797236871
+    repetition_2:
+      average_slowdown: 1.6029076174430397
+      outcome: true
+      planning_time: 30.001846837
+      prefix: query_14/hamp_timebased/repetition_2
+      trajectory_length: 1.5379118588229899
+      trajectory_nominal_time: 2.369381301
+      trajectory_time: 3.797899336
+    repetition_3:
+      average_slowdown: 1.6030237019147928
+      outcome: true
+      planning_time: 30.001718579
+      prefix: query_14/hamp_timebased/repetition_3
+      trajectory_length: 1.537912608109026
+      trajectory_nominal_time: 2.369381904
+      trajectory_time: 3.7981753510000003
+    repetition_4:
+      average_slowdown: 1.6021332247584121
+      outcome: true
+      planning_time: 30.00248731
+      prefix: query_14/hamp_timebased/repetition_4
+      trajectory_length: 1.53791275871143
+      trajectory_nominal_time: 2.3693820260000003
+      trajectory_time: 3.796065666
+    repetition_5:
+      average_slowdown: 1.6025652416255816
+      outcome: true
+      planning_time: 30.002614717
+      prefix: query_14/hamp_timebased/repetition_5
+      trajectory_length: 1.5379127587114296
+      trajectory_nominal_time: 2.3693820260000003
+      trajectory_time: 3.797089279
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 1.6020056986641684
+      outcome: true
+      planning_time: 30.004419921
+      prefix: query_14/hamp_timebased_1e6/repetition_0
+      trajectory_length: 1.5377676397830287
+      trajectory_nominal_time: 2.369265077
+      trajectory_time: 3.795576155
+    repetition_1:
+      average_slowdown: 1.6032706815838593
+      outcome: true
+      planning_time: 30.001301728
+      prefix: query_14/hamp_timebased_1e6/repetition_1
+      trajectory_length: 1.5377674681677993
+      trajectory_nominal_time: 2.369264938
+      trajectory_time: 3.7985730120000003
+    repetition_2:
+      average_slowdown: 1.6025365990538285
+      outcome: true
+      planning_time: 30.00307312
+      prefix: query_14/hamp_timebased_1e6/repetition_2
+      trajectory_length: 1.5377674681678628
+      trajectory_nominal_time: 2.369264938
+      trajectory_time: 3.796833776
+    repetition_3:
+      average_slowdown: 1.6026994483157173
+      outcome: true
+      planning_time: 30.002619281
+      prefix: query_14/hamp_timebased_1e6/repetition_3
+      trajectory_length: 1.537767629989088
+      trajectory_nominal_time: 2.369265069
+      trajectory_time: 3.797219819
+    repetition_4:
+      average_slowdown: 1.602269470211524
+      outcome: true
+      planning_time: 30.003533544
+      prefix: query_14/hamp_timebased_1e6/repetition_4
+      trajectory_length: 1.537767468167781
+      trajectory_nominal_time: 2.369264938
+      trajectory_time: 3.796200877
+    repetition_5:
+      average_slowdown: 1.602970338220571
+      outcome: true
+      planning_time: 30.002139188
+      prefix: query_14/hamp_timebased_1e6/repetition_5
+      trajectory_length: 1.5377674681677804
+      trajectory_nominal_time: 2.369264938
+      trajectory_time: 3.797861419
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 1.6023211464932994
+      outcome: true
+      planning_time: 0.003040562
+      prefix: query_14/mixed_strategy_a/repetition_0
+      trajectory_length: 1.537967939784973
+      trajectory_nominal_time: 2.369426495
+      trajectory_time: 3.796582178
+    repetition_1:
+      average_slowdown: 1.6022697101161976
+      outcome: true
+      planning_time: 0.003422594
+      prefix: query_14/mixed_strategy_a/repetition_1
+      trajectory_length: 1.5377674685751959
+      trajectory_nominal_time: 2.369264939
+      trajectory_time: 3.796201447
+    repetition_2:
+      average_slowdown: 1.6027616386383374
+      outcome: true
+      planning_time: 0.002531502
+      prefix: query_14/mixed_strategy_a/repetition_2
+      trajectory_length: 1.5377674685752076
+      trajectory_nominal_time: 2.369264939
+      trajectory_time: 3.7973669560000003
+    repetition_3:
+      average_slowdown: 1.6031197931807155
+      outcome: true
+      planning_time: 0.002500899
+      prefix: query_14/mixed_strategy_a/repetition_3
+      trajectory_length: 1.5377674685752083
+      trajectory_nominal_time: 2.369264939
+      trajectory_time: 3.798215519
+    repetition_4:
+      average_slowdown: 1.6025123119419953
+      outcome: true
+      planning_time: 0.003005338
+      prefix: query_14/mixed_strategy_a/repetition_4
+      trajectory_length: 1.5377674685751965
+      trajectory_nominal_time: 2.369264939
+      trajectory_time: 3.7967762350000003
+    repetition_5:
+      average_slowdown: 1.6026164222911334
+      outcome: true
+      planning_time: 0.002767981
+      prefix: query_14/mixed_strategy_a/repetition_5
+      trajectory_length: 1.5377674685752076
+      trajectory_nominal_time: 2.369264939
+      trajectory_time: 3.7970229
+query_15:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 1.5806209378270266
+      outcome: true
+      planning_time: 0.0020971130000000003
+      prefix: query_15/hamp_timebased/repetition_0
+      trajectory_length: 1.1675820102366992
+      trajectory_nominal_time: 2.149592732
+      trajectory_time: 3.39769128
+    repetition_1:
+      average_slowdown: 1.5805666205611268
+      outcome: true
+      planning_time: 0.0022195030000000003
+      prefix: query_15/hamp_timebased/repetition_1
+      trajectory_length: 1.167582010236701
+      trajectory_nominal_time: 2.149592732
+      trajectory_time: 3.39757452
+    repetition_2:
+      average_slowdown: 1.5805943355785408
+      outcome: true
+      planning_time: 0.002105596
+      prefix: query_15/hamp_timebased/repetition_2
+      trajectory_length: 1.1675820102522445
+      trajectory_nominal_time: 2.149592732
+      trajectory_time: 3.397634096
+    repetition_3:
+      average_slowdown: 1.5804346904537265
+      outcome: true
+      planning_time: 0.002373201
+      prefix: query_15/hamp_timebased/repetition_3
+      trajectory_length: 1.1675820102367007
+      trajectory_nominal_time: 2.149592732
+      trajectory_time: 3.397290924
+    repetition_4:
+      average_slowdown: 1.5771896185402623
+      outcome: true
+      planning_time: 0.007408153000000001
+      prefix: query_15/hamp_timebased/repetition_4
+      trajectory_length: 1.1675820102367
+      trajectory_nominal_time: 2.149592732
+      trajectory_time: 3.390315341
+    repetition_5:
+      average_slowdown: 1.5783661158191895
+      outcome: true
+      planning_time: 0.005340919
+      prefix: query_15/hamp_timebased/repetition_5
+      trajectory_length: 1.1675820102367007
+      trajectory_nominal_time: 2.149592732
+      trajectory_time: 3.392844331
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 1.5803539362478574
+      outcome: true
+      planning_time: 0.002424234
+      prefix: query_15/hamp_timebased_1e6/repetition_0
+      trajectory_length: 1.1675813107227329
+      trajectory_nominal_time: 2.149592037
+      trajectory_time: 3.397116237
+    repetition_1:
+      average_slowdown: 1.5806734568769711
+      outcome: true
+      planning_time: 0.00196816
+      prefix: query_15/hamp_timebased_1e6/repetition_1
+      trajectory_length: 1.1675813108327957
+      trajectory_nominal_time: 2.149592037
+      trajectory_time: 3.397803076
+    repetition_2:
+      average_slowdown: 1.5806183747972267
+      outcome: true
+      planning_time: 0.002003219
+      prefix: query_15/hamp_timebased_1e6/repetition_2
+      trajectory_length: 1.1675813107227335
+      trajectory_nominal_time: 2.149592037
+      trajectory_time: 3.397684672
+    repetition_3:
+      average_slowdown: 1.5806338797948225
+      outcome: true
+      planning_time: 0.0020774440000000003
+      prefix: query_15/hamp_timebased_1e6/repetition_3
+      trajectory_length: 1.1675813110607383
+      trajectory_nominal_time: 2.149592038
+      trajectory_time: 3.397718003
+    repetition_4:
+      average_slowdown: 1.5807771598104408
+      outcome: true
+      planning_time: 0.0022967770000000003
+      prefix: query_15/hamp_timebased_1e6/repetition_4
+      trajectory_length: 1.1675813107227335
+      trajectory_nominal_time: 2.149592037
+      trajectory_time: 3.3980259950000002
+    repetition_5:
+      average_slowdown: 1.5786649739063954
+      outcome: true
+      planning_time: 0.0050888750000000005
+      prefix: query_15/hamp_timebased_1e6/repetition_5
+      trajectory_length: 1.167581310722733
+      trajectory_nominal_time: 2.149592037
+      trajectory_time: 3.3934856570000003
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 1.5803460485419651
+      outcome: true
+      planning_time: 0.002379286
+      prefix: query_15/mixed_strategy_a/repetition_0
+      trajectory_length: 1.1675819786311965
+      trajectory_nominal_time: 2.149592701
+      trajectory_time: 3.397100331
+    repetition_1:
+      average_slowdown: 1.5805250459252607
+      outcome: true
+      planning_time: 0.0022876980000000003
+      prefix: query_15/mixed_strategy_a/repetition_1
+      trajectory_length: 1.1675813107227337
+      trajectory_nominal_time: 2.149592037
+      trajectory_time: 3.397484053
+    repetition_2:
+      average_slowdown: 1.5743277006752328
+      outcome: true
+      planning_time: 0.013509711
+      prefix: query_15/mixed_strategy_a/repetition_2
+      trajectory_length: 1.167581310722734
+      trajectory_nominal_time: 2.149592037
+      trajectory_time: 3.384162289
+    repetition_3:
+      average_slowdown: 1.5805059613737302
+      outcome: true
+      planning_time: 0.002298347
+      prefix: query_15/mixed_strategy_a/repetition_3
+      trajectory_length: 1.1675813107227322
+      trajectory_nominal_time: 2.149592037
+      trajectory_time: 3.397443029
+    repetition_4:
+      average_slowdown: 1.5788050802223894
+      outcome: true
+      planning_time: 0.0053752750000000005
+      prefix: query_15/mixed_strategy_a/repetition_4
+      trajectory_length: 1.167581311060738
+      trajectory_nominal_time: 2.149592038
+      trajectory_time: 3.39378683
+    repetition_5:
+      average_slowdown: 1.5806440657185965
+      outcome: true
+      planning_time: 0.002298903
+      prefix: query_15/mixed_strategy_a/repetition_5
+      trajectory_length: 1.1675813107227322
+      trajectory_nominal_time: 2.149592037
+      trajectory_time: 3.397739897
+query_16:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 2.4549969350853513
+      outcome: true
+      planning_time: 30.003256564
+      prefix: query_16/hamp_timebased/repetition_0
+      trajectory_length: 1.4342194626699458
+      trajectory_nominal_time: 1.301806235
+      trajectory_time: 3.195930317
+    repetition_1:
+      average_slowdown: 2.4565937787200722
+      outcome: true
+      planning_time: 30.00255786
+      prefix: query_16/hamp_timebased/repetition_1
+      trajectory_length: 1.4342194626356293
+      trajectory_nominal_time: 1.301806235
+      trajectory_time: 3.198009098
+    repetition_2:
+      average_slowdown: 2.4564992700315345
+      outcome: true
+      planning_time: 30.001476063
+      prefix: query_16/hamp_timebased/repetition_2
+      trajectory_length: 1.4342194626356286
+      trajectory_nominal_time: 1.301806235
+      trajectory_time: 3.197886066
+    repetition_3:
+      average_slowdown: 2.4553736048130084
+      outcome: true
+      planning_time: 30.003750174
+      prefix: query_16/hamp_timebased/repetition_3
+      trajectory_length: 1.4342194626356293
+      trajectory_nominal_time: 1.301806235
+      trajectory_time: 3.196420668
+    repetition_4:
+      average_slowdown: 2.4568284995193626
+      outcome: true
+      planning_time: 30.001604187
+      prefix: query_16/hamp_timebased/repetition_4
+      trajectory_length: 1.434219462699411
+      trajectory_nominal_time: 1.301806235
+      trajectory_time: 3.1983146590000002
+    repetition_5:
+      average_slowdown: 2.4565699971470796
+      outcome: true
+      planning_time: 30.001821231
+      prefix: query_16/hamp_timebased/repetition_5
+      trajectory_length: 1.4342194626356295
+      trajectory_nominal_time: 1.301806235
+      trajectory_time: 3.197978139
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 2.4561991239809973
+      outcome: true
+      planning_time: 30.002225297
+      prefix: query_16/hamp_timebased_1e6/repetition_0
+      trajectory_length: 1.434219463259103
+      trajectory_nominal_time: 1.301806235
+      trajectory_time: 3.197495334
+    repetition_1:
+      average_slowdown: 2.4562129685912897
+      outcome: true
+      planning_time: 30.002006631
+      prefix: query_16/hamp_timebased_1e6/repetition_1
+      trajectory_length: 1.4342194632591025
+      trajectory_nominal_time: 1.301806235
+      trajectory_time: 3.197513357
+    repetition_2:
+      average_slowdown: 2.4561028807793353
+      outcome: true
+      planning_time: 30.002436079
+      prefix: query_16/hamp_timebased_1e6/repetition_2
+      trajectory_length: 1.4342194632591025
+      trajectory_nominal_time: 1.301806235
+      trajectory_time: 3.197370044
+    repetition_3:
+      average_slowdown: 2.455897799567691
+      outcome: true
+      planning_time: 30.002525239
+      prefix: query_16/hamp_timebased_1e6/repetition_3
+      trajectory_length: 1.434219463259103
+      trajectory_nominal_time: 1.301806235
+      trajectory_time: 3.197103068
+    repetition_4:
+      average_slowdown: 2.4569068660206566
+      outcome: true
+      planning_time: 30.001421719
+      prefix: query_16/hamp_timebased_1e6/repetition_4
+      trajectory_length: 1.4342194632591025
+      trajectory_nominal_time: 1.301806235
+      trajectory_time: 3.198416677
+    repetition_5:
+      average_slowdown: 1.9763925301274132
+      outcome: true
+      planning_time: 30.003190332
+      prefix: query_16/hamp_timebased_1e6/repetition_5
+      trajectory_length: 1.4342206755130449
+      trajectory_nominal_time: 1.819468678
+      trajectory_time: 3.595984304
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 1.9770256461204154
+      outcome: true
+      planning_time: 0.002757143
+      prefix: query_16/mixed_strategy_a/repetition_0
+      trajectory_length: 1.4340722483693127
+      trajectory_nominal_time: 1.819380524
+      trajectory_time: 3.596961956
+    repetition_1:
+      average_slowdown: 1.9727057413780518
+      outcome: true
+      planning_time: 0.009404210000000001
+      prefix: query_16/mixed_strategy_a/repetition_1
+      trajectory_length: 1.4342194632591028
+      trajectory_nominal_time: 1.8194679580000002
+      trajectory_time: 3.589274887
+    repetition_2:
+      average_slowdown: 1.9762395953114111
+      outcome: true
+      planning_time: 0.0038736070000000003
+      prefix: query_16/mixed_strategy_a/repetition_2
+      trajectory_length: 1.4342194632591025
+      trajectory_nominal_time: 1.8194679580000002
+      trajectory_time: 3.595704621
+    repetition_3:
+      average_slowdown: 1.9732231459280252
+      outcome: true
+      planning_time: 0.008750261
+      prefix: query_16/mixed_strategy_a/repetition_3
+      trajectory_length: 1.4342194632591025
+      trajectory_nominal_time: 1.8194679580000002
+      trajectory_time: 3.590216288
+    repetition_4:
+      average_slowdown: 1.9769978098179841
+      outcome: true
+      planning_time: 0.003145132
+      prefix: query_16/mixed_strategy_a/repetition_4
+      trajectory_length: 1.434219463259102
+      trajectory_nominal_time: 1.8194679580000002
+      trajectory_time: 3.5970841680000003
+    repetition_5:
+      average_slowdown: 1.9745004940614623
+      outcome: true
+      planning_time: 0.006516457000000001
+      prefix: query_16/mixed_strategy_a/repetition_5
+      trajectory_length: 1.4342194632591023
+      trajectory_nominal_time: 1.8194679580000002
+      trajectory_time: 3.592540382
+query_17:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 1.4398417299769848
+      outcome: true
+      planning_time: 30.006047953
+      prefix: query_17/hamp_timebased/repetition_0
+      trajectory_length: 2.9376700240664633
+      trajectory_nominal_time: 3.7456268010000002
+      trajectory_time: 5.393109773
+    repetition_1:
+      average_slowdown: 1.4469841034353481
+      outcome: true
+      planning_time: 30.001134009
+      prefix: query_17/hamp_timebased/repetition_1
+      trajectory_length: 2.688189868582076
+      trajectory_nominal_time: 3.385394403
+      trajectory_time: 4.898611885
+    repetition_2:
+      average_slowdown: 1.36266842942539
+      outcome: true
+      planning_time: 30.002514616
+      prefix: query_17/hamp_timebased/repetition_2
+      trajectory_length: 2.827731553406154
+      trajectory_nominal_time: 3.667242666
+      trajectory_time: 4.997235804
+    repetition_3:
+      average_slowdown: 1.2810438672414814
+      outcome: true
+      planning_time: 30.004096
+      prefix: query_17/hamp_timebased/repetition_3
+      trajectory_length: 2.440950185441742
+      trajectory_nominal_time: 3.119446411
+      trajectory_time: 3.9961476940000003
+    repetition_4:
+      average_slowdown: 1.4162914198039356
+      outcome: true
+      planning_time: 30.001855507
+      prefix: query_17/hamp_timebased/repetition_4
+      trajectory_length: 2.5146264321204654
+      trajectory_nominal_time: 3.03430607
+      trajectory_time: 4.297461652
+    repetition_5:
+      average_slowdown: 1.5404510357161207
+      outcome: true
+      planning_time: 30.001369177
+      prefix: query_17/hamp_timebased/repetition_5
+      trajectory_length: 3.0335271565747153
+      trajectory_nominal_time: 3.6350014010000002
+      trajectory_time: 5.599541673
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 1.2247122000122792
+      outcome: true
+      planning_time: 30.004425267
+      prefix: query_17/hamp_timebased_1e6/repetition_0
+      trajectory_length: 2.5905541888322814
+      trajectory_nominal_time: 3.262529413
+      trajectory_time: 3.995659575
+    repetition_1:
+      average_slowdown: 1.2652164753063029
+      outcome: true
+      planning_time: 30.001471221
+      prefix: query_17/hamp_timebased_1e6/repetition_1
+      trajectory_length: 2.5710976216948964
+      trajectory_nominal_time: 3.634567279
+      trajectory_time: 4.598514402
+    repetition_2:
+      average_slowdown: 1.3221264490119506
+      outcome: true
+      planning_time: 30.001625772
+      prefix: query_17/hamp_timebased_1e6/repetition_2
+      trajectory_length: 2.51595120484611
+      trajectory_nominal_time: 3.175257456
+      trajectory_time: 4.198091865
+    repetition_3:
+      average_slowdown: 1.4555667498110307
+      outcome: true
+      planning_time: 30.00480151
+      prefix: query_17/hamp_timebased_1e6/repetition_3
+      trajectory_length: 2.8783747305165783
+      trajectory_nominal_time: 3.500391595
+      trajectory_time: 5.095053617
+    repetition_4:
+      average_slowdown: 1.3790762604315765
+      outcome: true
+      planning_time: 30.001142524
+      prefix: query_17/hamp_timebased_1e6/repetition_4
+      trajectory_length: 2.8358802394741875
+      trajectory_nominal_time: 3.769595045
+      trajectory_time: 5.198559038
+    repetition_5:
+      average_slowdown: 1.5240780621776255
+      outcome: true
+      planning_time: 30.002520756
+      prefix: query_17/hamp_timebased_1e6/repetition_5
+      trajectory_length: 2.7381775900164667
+      trajectory_nominal_time: 3.278736051
+      trajectory_time: 4.9970496870000005
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.008029569
+      prefix: query_17/mixed_strategy_a/repetition_0
+      trajectory_length: 1.6865420010084264
+      trajectory_nominal_time: 2.379434041
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.030086242
+      prefix: query_17/mixed_strategy_a/repetition_1
+      trajectory_length: 1.6880739666536093
+      trajectory_nominal_time: 2.363427837
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.003047465
+      prefix: query_17/mixed_strategy_a/repetition_2
+      trajectory_length: 1.6862559561807227
+      trajectory_nominal_time: 2.81327766
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.023705329
+      prefix: query_17/mixed_strategy_a/repetition_3
+      trajectory_length: 1.6867895643120874
+      trajectory_nominal_time: 2.823344497
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.020623674
+      prefix: query_17/mixed_strategy_a/repetition_4
+      trajectory_length: 1.6873731993048553
+      trajectory_nominal_time: 2.3533800080000002
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.012100772
+      prefix: query_17/mixed_strategy_a/repetition_5
+      trajectory_length: 1.6864595532401399
+      trajectory_nominal_time: 2.7933965780000003
+      trajectory_time: 0.0
+query_18:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 1.2211025798623858
+      outcome: true
+      planning_time: 1.798253949
+      prefix: query_18/hamp_timebased/repetition_0
+      trajectory_length: 2.533701028772629
+      trajectory_nominal_time: 2.949403713
+      trajectory_time: 3.601524483
+    repetition_1:
+      average_slowdown: 1.286892073803687
+      outcome: true
+      planning_time: 30.002616768
+      prefix: query_18/hamp_timebased/repetition_1
+      trajectory_length: 2.5174592004791596
+      trajectory_nominal_time: 2.950661525
+      trajectory_time: 3.797182929
+    repetition_2:
+      average_slowdown: 1.3298637499494106
+      outcome: true
+      planning_time: 0.7546610810000001
+      prefix: query_18/hamp_timebased/repetition_2
+      trajectory_length: 2.5260161881938425
+      trajectory_nominal_time: 2.965960807
+      trajectory_time: 3.944323761
+    repetition_3:
+      average_slowdown: 1.234570913511485
+      outcome: true
+      planning_time: 1.389998777
+      prefix: query_18/hamp_timebased/repetition_3
+      trajectory_length: 2.5249669740313343
+      trajectory_nominal_time: 2.9253249720000003
+      trajectory_time: 3.611521123
+    repetition_4:
+      average_slowdown: 1.3267645447587701
+      outcome: true
+      planning_time: 1.309388226
+      prefix: query_18/hamp_timebased/repetition_4
+      trajectory_length: 2.5351040381803918
+      trajectory_nominal_time: 2.93335305
+      trajectory_time: 3.891868824
+    repetition_5:
+      average_slowdown: 1.3988002144077005
+      outcome: true
+      planning_time: 2.016495581
+      prefix: query_18/hamp_timebased/repetition_5
+      trajectory_length: 2.5347014243392585
+      trajectory_nominal_time: 2.918673155
+      trajectory_time: 4.082640635
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 1.2831028905959987
+      outcome: true
+      planning_time: 0.751649529
+      prefix: query_18/hamp_timebased_1e6/repetition_0
+      trajectory_length: 2.5220389386476083
+      trajectory_nominal_time: 2.921067179
+      trajectory_time: 3.748029741
+    repetition_1:
+      average_slowdown: 1.3002938086910578
+      outcome: true
+      planning_time: 30.002759058
+      prefix: query_18/hamp_timebased_1e6/repetition_1
+      trajectory_length: 2.5168978514236855
+      trajectory_nominal_time: 2.920151194
+      trajectory_time: 3.797054518
+    repetition_2:
+      average_slowdown: 1.3323216030313616
+      outcome: true
+      planning_time: 0.18893336900000002
+      prefix: query_18/hamp_timebased_1e6/repetition_2
+      trajectory_length: 2.528291794439507
+      trajectory_nominal_time: 2.935489818
+      trajectory_time: 3.9110165
+    repetition_3:
+      average_slowdown: 1.3303811208130223
+      outcome: true
+      planning_time: 30.001459197
+      prefix: query_18/hamp_timebased_1e6/repetition_3
+      trajectory_length: 2.5215785446380954
+      trajectory_nominal_time: 2.93015118
+      trajectory_time: 3.8982178110000003
+    repetition_4:
+      average_slowdown: 1.263489258880403
+      outcome: true
+      planning_time: 30.003282215
+      prefix: query_18/hamp_timebased_1e6/repetition_4
+      trajectory_length: 2.55560716227207
+      trajectory_nominal_time: 3.163131524
+      trajectory_time: 3.996582705
+    repetition_5:
+      average_slowdown: 1.2907225600419132
+      outcome: true
+      planning_time: 30.003552953
+      prefix: query_18/hamp_timebased_1e6/repetition_5
+      trajectory_length: 2.51370635267923
+      trajectory_nominal_time: 3.09545307
+      trajectory_time: 3.995371111
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 1.2912439718083017
+      outcome: true
+      planning_time: 0.0028753330000000003
+      prefix: query_18/mixed_strategy_a/repetition_0
+      trajectory_length: 2.513708522170125
+      trajectory_nominal_time: 3.095454812
+      trajectory_time: 3.996987366
+    repetition_1:
+      average_slowdown: 1.2910815433478604
+      outcome: true
+      planning_time: 0.0031930450000000003
+      prefix: query_18/mixed_strategy_a/repetition_1
+      trajectory_length: 2.5137063917676175
+      trajectory_nominal_time: 3.095453101
+      trajectory_time: 3.996482367
+    repetition_2:
+      average_slowdown: 1.291415702472418
+      outcome: true
+      planning_time: 0.0029896750000000002
+      prefix: query_18/mixed_strategy_a/repetition_2
+      trajectory_length: 2.513706507935294
+      trajectory_nominal_time: 3.095453194
+      trajectory_time: 3.9975168610000003
+    repetition_3:
+      average_slowdown: 1.2911845982292152
+      outcome: true
+      planning_time: 0.002853567
+      prefix: query_18/mixed_strategy_a/repetition_3
+      trajectory_length: 2.513706526600065
+      trajectory_nominal_time: 3.095453209
+      trajectory_time: 3.996801508
+    repetition_4:
+      average_slowdown: 1.2911865806709368
+      outcome: true
+      planning_time: 0.0029419150000000002
+      prefix: query_18/mixed_strategy_a/repetition_4
+      trajectory_length: 2.513706561687842
+      trajectory_nominal_time: 3.095453238
+      trajectory_time: 3.996807682
+    repetition_5:
+      average_slowdown: 1.2912092932869523
+      outcome: true
+      planning_time: 0.002736594
+      prefix: query_18/mixed_strategy_a/repetition_5
+      trajectory_length: 2.5137062422038845
+      trajectory_nominal_time: 3.095452981
+      trajectory_time: 3.996877656
+query_19:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 1.2753899646236824
+      outcome: true
+      planning_time: 30.00181733
+      prefix: query_19/hamp_timebased/repetition_0
+      trajectory_length: 2.5728952141684847
+      trajectory_nominal_time: 3.448400748
+      trajectory_time: 4.398055708
+    repetition_1:
+      average_slowdown: 1.2753034300176995
+      outcome: true
+      planning_time: 30.002118676
+      prefix: query_19/hamp_timebased/repetition_1
+      trajectory_length: 2.572895214167427
+      trajectory_nominal_time: 3.448400748
+      trajectory_time: 4.3977573020000005
+    repetition_2:
+      average_slowdown: 1.2751225948869909
+      outcome: true
+      planning_time: 30.00223079
+      prefix: query_19/hamp_timebased/repetition_2
+      trajectory_length: 2.572895214168544
+      trajectory_nominal_time: 3.448400748
+      trajectory_time: 4.39713371
+    repetition_3:
+      average_slowdown: 1.2750567282461718
+      outcome: true
+      planning_time: 30.002711556
+      prefix: query_19/hamp_timebased/repetition_3
+      trajectory_length: 2.572895185737065
+      trajectory_nominal_time: 3.448400721
+      trajectory_time: 4.396906541
+    repetition_4:
+      average_slowdown: 1.275332769361423
+      outcome: true
+      planning_time: 30.001750732
+      prefix: query_19/hamp_timebased/repetition_4
+      trajectory_length: 2.5728943019510035
+      trajectory_nominal_time: 3.448399877
+      trajectory_time: 4.397857365
+    repetition_5:
+      average_slowdown: 1.327514184699603
+      outcome: true
+      planning_time: 30.001706306
+      prefix: query_19/hamp_timebased/repetition_5
+      trajectory_length: 2.5787737565990847
+      trajectory_nominal_time: 3.011217981
+      trajectory_time: 3.997434583
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 1.2746341110556987
+      outcome: true
+      planning_time: 30.001577093
+      prefix: query_19/hamp_timebased_1e6/repetition_0
+      trajectory_length: 2.573166907712813
+      trajectory_nominal_time: 3.450503615
+      trajectory_time: 4.398129608
+    repetition_1:
+      average_slowdown: 1.274561825375743
+      outcome: true
+      planning_time: 30.001244446
+      prefix: query_19/hamp_timebased_1e6/repetition_1
+      trajectory_length: 2.5731669077727006
+      trajectory_nominal_time: 3.450503615
+      trajectory_time: 4.397880186
+    repetition_2:
+      average_slowdown: 1.274378172184584
+      outcome: true
+      planning_time: 30.00263709
+      prefix: query_19/hamp_timebased_1e6/repetition_2
+      trajectory_length: 2.573166907712813
+      trajectory_nominal_time: 3.450503615
+      trajectory_time: 4.39724649
+    repetition_3:
+      average_slowdown: 1.2741499307196058
+      outcome: true
+      planning_time: 30.002935426
+      prefix: query_19/hamp_timebased_1e6/repetition_3
+      trajectory_length: 2.5731669077128125
+      trajectory_nominal_time: 3.450503615
+      trajectory_time: 4.396458942
+    repetition_4:
+      average_slowdown: 1.2746856881643929
+      outcome: true
+      planning_time: 30.001500746
+      prefix: query_19/hamp_timebased_1e6/repetition_4
+      trajectory_length: 2.5731669077128165
+      trajectory_nominal_time: 3.450503615
+      trajectory_time: 4.3983075750000005
+    repetition_5:
+      average_slowdown: 1.2744970700829605
+      outcome: true
+      planning_time: 30.002308406
+      prefix: query_19/hamp_timebased_1e6/repetition_5
+      trajectory_length: 2.5731669655402043
+      trajectory_nominal_time: 3.450503671
+      trajectory_time: 4.397656819
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 1.2750971127009691
+      outcome: true
+      planning_time: 0.0026122240000000002
+      prefix: query_19/mixed_strategy_a/repetition_0
+      trajectory_length: 2.5728638288987997
+      trajectory_nominal_time: 3.448370776
+      trajectory_time: 4.39700762
+    repetition_1:
+      average_slowdown: 1.27445936612937
+      outcome: true
+      planning_time: 0.002699267
+      prefix: query_19/mixed_strategy_a/repetition_1
+      trajectory_length: 2.5731669077127957
+      trajectory_nominal_time: 3.450503615
+      trajectory_time: 4.39752665
+    repetition_2:
+      average_slowdown: 1.2743450738277229
+      outcome: true
+      planning_time: 0.0026006370000000003
+      prefix: query_19/mixed_strategy_a/repetition_2
+      trajectory_length: 2.5731669077127943
+      trajectory_nominal_time: 3.450503615
+      trajectory_time: 4.397132284
+    repetition_3:
+      average_slowdown: 1.271629975672406
+      outcome: true
+      planning_time: 0.010626876
+      prefix: query_19/mixed_strategy_a/repetition_3
+      trajectory_length: 2.5731669077127943
+      trajectory_nominal_time: 3.450503615
+      trajectory_time: 4.387763828
+    repetition_4:
+      average_slowdown: 1.2715142615493245
+      outcome: true
+      planning_time: 0.010572482000000001
+      prefix: query_19/mixed_strategy_a/repetition_4
+      trajectory_length: 2.573166907434708
+      trajectory_nominal_time: 3.450503615
+      trajectory_time: 4.387364556
+    repetition_5:
+      average_slowdown: 1.2739889362498173
+      outcome: true
+      planning_time: 0.0038068050000000003
+      prefix: query_19/mixed_strategy_a/repetition_5
+      trajectory_length: 2.5731669077127948
+      trajectory_nominal_time: 3.450503615
+      trajectory_time: 4.39590343
+query_2:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 1.5695620898223368
+      outcome: true
+      planning_time: 30.001774952
+      prefix: query_2/hamp_timebased/repetition_0
+      trajectory_length: 0.8228512181338736
+      trajectory_nominal_time: 1.464221004
+      trajectory_time: 2.298185779
+    repetition_1:
+      average_slowdown: 1.5687050269692109
+      outcome: true
+      planning_time: 30.001873437
+      prefix: query_2/hamp_timebased/repetition_1
+      trajectory_length: 0.8228512168142571
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.296930848
+    repetition_2:
+      average_slowdown: 1.5705379135310764
+      outcome: true
+      planning_time: 30.001406443
+      prefix: query_2/hamp_timebased/repetition_2
+      trajectory_length: 0.8228512168142552
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.299614599
+    repetition_3:
+      average_slowdown: 1.5692181004727739
+      outcome: true
+      planning_time: 30.001395743
+      prefix: query_2/hamp_timebased/repetition_3
+      trajectory_length: 0.822851216814255
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.297682101
+    repetition_4:
+      average_slowdown: 1.5698100602918341
+      outcome: true
+      planning_time: 30.001195147
+      prefix: query_2/hamp_timebased/repetition_4
+      trajectory_length: 0.8228512168142552
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.298548861
+    repetition_5:
+      average_slowdown: 1.5684134161369898
+      outcome: true
+      planning_time: 30.003277917
+      prefix: query_2/hamp_timebased/repetition_5
+      trajectory_length: 0.8228512211055289
+      trajectory_nominal_time: 1.464221006
+      trajectory_time: 2.29650387
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 1.5701074662156038
+      outcome: true
+      planning_time: 30.00131984
+      prefix: query_2/hamp_timebased_1e6/repetition_0
+      trajectory_length: 0.8228512168142565
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.298984329
+    repetition_1:
+      average_slowdown: 1.5697908500770221
+      outcome: true
+      planning_time: 30.001213952
+      prefix: query_2/hamp_timebased_1e6/repetition_1
+      trajectory_length: 0.8228512168142554
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.298520733
+    repetition_2:
+      average_slowdown: 1.5698565232232229
+      outcome: true
+      planning_time: 30.001165737
+      prefix: query_2/hamp_timebased_1e6/repetition_2
+      trajectory_length: 0.8228512168142552
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.298616893
+    repetition_3:
+      average_slowdown: 1.5676568764530963
+      outcome: true
+      planning_time: 30.00437019
+      prefix: query_2/hamp_timebased_1e6/repetition_3
+      trajectory_length: 0.8228512168142554
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.295396124
+    repetition_4:
+      average_slowdown: 1.5690223438216861
+      outcome: true
+      planning_time: 30.001735475
+      prefix: query_2/hamp_timebased_1e6/repetition_4
+      trajectory_length: 0.8228512168142552
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.29739547
+    repetition_5:
+      average_slowdown: 1.5695236926132772
+      outcome: true
+      planning_time: 30.001568086
+      prefix: query_2/hamp_timebased_1e6/repetition_5
+      trajectory_length: 0.8228512180855136
+      trajectory_nominal_time: 1.464221004
+      trajectory_time: 2.298129557
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 1.5695199587967403
+      outcome: true
+      planning_time: 0.0024360280000000002
+      prefix: query_2/mixed_strategy_a/repetition_0
+      trajectory_length: 0.8228791791878203
+      trajectory_nominal_time: 1.4642394970000001
+      trajectory_time: 2.298153115
+    repetition_1:
+      average_slowdown: 1.5693537449077597
+      outcome: true
+      planning_time: 0.002152441
+      prefix: query_2/mixed_strategy_a/repetition_1
+      trajectory_length: 0.8228512180855114
+      trajectory_nominal_time: 1.464221004
+      trajectory_time: 2.297880716
+    repetition_2:
+      average_slowdown: 1.5686497586730763
+      outcome: true
+      planning_time: 0.003689836
+      prefix: query_2/mixed_strategy_a/repetition_2
+      trajectory_length: 0.822851216814255
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.296849923
+    repetition_3:
+      average_slowdown: 1.568508725318428
+      outcome: true
+      planning_time: 0.003139806
+      prefix: query_2/mixed_strategy_a/repetition_3
+      trajectory_length: 0.8228512168142552
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.296643419
+    repetition_4:
+      average_slowdown: 1.5676019434888544
+      outcome: true
+      planning_time: 0.004139796
+      prefix: query_2/mixed_strategy_a/repetition_4
+      trajectory_length: 0.822851216814255
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.29531569
+    repetition_5:
+      average_slowdown: 1.5621041354506509
+      outcome: true
+      planning_time: 0.011172171
+      prefix: query_2/mixed_strategy_a/repetition_5
+      trajectory_length: 0.8228512168142552
+      trajectory_nominal_time: 1.464221003
+      trajectory_time: 2.287265684
+query_3:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 3.0338171210037492
+      outcome: true
+      planning_time: 30.002270998
+      prefix: query_3/hamp_timebased/repetition_0
+      trajectory_length: 2.744789637469135
+      trajectory_nominal_time: 3.657848904
+      trajectory_time: 11.097244631
+    repetition_1:
+      average_slowdown: 3.03434095127949
+      outcome: true
+      planning_time: 30.001301187
+      prefix: query_3/hamp_timebased/repetition_1
+      trajectory_length: 2.7447896375276075
+      trajectory_nominal_time: 3.657848904
+      trajectory_time: 11.099160723
+    repetition_2:
+      average_slowdown: 3.0336179815589235
+      outcome: true
+      planning_time: 30.003197851
+      prefix: query_3/hamp_timebased/repetition_2
+      trajectory_length: 2.744789637527605
+      trajectory_nominal_time: 3.657848904
+      trajectory_time: 11.096516209
+    repetition_3:
+      average_slowdown: 3.0340424291073997
+      outcome: true
+      planning_time: 30.001748735
+      prefix: query_3/hamp_timebased/repetition_3
+      trajectory_length: 2.7447896375262597
+      trajectory_nominal_time: 3.657848904
+      trajectory_time: 11.098068774
+    repetition_4:
+      average_slowdown: 3.0339408508274457
+      outcome: true
+      planning_time: 30.00207926
+      prefix: query_3/hamp_timebased/repetition_4
+      trajectory_length: 2.744789637527607
+      trajectory_nominal_time: 3.657848904
+      trajectory_time: 11.097697216
+    repetition_5:
+      average_slowdown: 3.0337635020585307
+      outcome: true
+      planning_time: 30.002705963
+      prefix: query_3/hamp_timebased/repetition_5
+      trajectory_length: 2.7447896375191507
+      trajectory_nominal_time: 3.657848904
+      trajectory_time: 11.097048501
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 3.0334642947071533
+      outcome: true
+      planning_time: 30.003724397
+      prefix: query_3/hamp_timebased_1e6/repetition_0
+      trajectory_length: 2.7447717583885956
+      trajectory_nominal_time: 3.657831461
+      trajectory_time: 11.095901133
+    repetition_1:
+      average_slowdown: 3.0342423906993674
+      outcome: true
+      planning_time: 30.001201808
+      prefix: query_3/hamp_timebased_1e6/repetition_1
+      trajectory_length: 2.7447717583475986
+      trajectory_nominal_time: 3.657831461
+      trajectory_time: 11.098747277
+    repetition_2:
+      average_slowdown: 3.061411017650046
+      outcome: true
+      planning_time: 30.002401053
+      prefix: query_3/hamp_timebased_1e6/repetition_2
+      trajectory_length: 2.744771758351736
+      trajectory_nominal_time: 3.657636359
+      trajectory_time: 11.197528248
+    repetition_3:
+      average_slowdown: 3.0612713829379343
+      outcome: true
+      planning_time: 30.002904807
+      prefix: query_3/hamp_timebased_1e6/repetition_3
+      trajectory_length: 2.744771758351736
+      trajectory_nominal_time: 3.657636359
+      trajectory_time: 11.197017515
+    repetition_4:
+      average_slowdown: 3.0341983523116736
+      outcome: true
+      planning_time: 30.001204272
+      prefix: query_3/hamp_timebased_1e6/repetition_4
+      trajectory_length: 2.744771758351737
+      trajectory_nominal_time: 3.657831461
+      trajectory_time: 11.098586192
+    repetition_5:
+      average_slowdown: 3.034119133528383
+      outcome: true
+      planning_time: 30.001692405
+      prefix: query_3/hamp_timebased_1e6/repetition_5
+      trajectory_length: 2.744771877640236
+      trajectory_nominal_time: 3.657831577
+      trajectory_time: 11.098296775
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 3.061218685496055
+      outcome: true
+      planning_time: 0.0027336630000000003
+      prefix: query_3/mixed_strategy_a/repetition_0
+      trajectory_length: 2.7447721456688794
+      trajectory_nominal_time: 3.657636736
+      trajectory_time: 11.196825921
+    repetition_1:
+      average_slowdown: 3.061085886094233
+      outcome: true
+      planning_time: 0.003229828
+      prefix: query_3/mixed_strategy_a/repetition_1
+      trajectory_length: 2.7447717585538745
+      trajectory_nominal_time: 3.657636359
+      trajectory_time: 11.196339035
+    repetition_2:
+      average_slowdown: 3.061240235472007
+      outcome: true
+      planning_time: 0.0030432330000000002
+      prefix: query_3/mixed_strategy_a/repetition_2
+      trajectory_length: 2.744771877638351
+      trajectory_nominal_time: 3.657636475
+      trajectory_time: 11.196903944
+    repetition_3:
+      average_slowdown: 3.060956006569789
+      outcome: true
+      planning_time: 0.0037444220000000003
+      prefix: query_3/mixed_strategy_a/repetition_3
+      trajectory_length: 2.744771877410331
+      trajectory_nominal_time: 3.657636475
+      trajectory_time: 11.195864338
+    repetition_4:
+      average_slowdown: 3.061241214274576
+      outcome: true
+      planning_time: 0.002909483
+      prefix: query_3/mixed_strategy_a/repetition_4
+      trajectory_length: 2.7447717585784988
+      trajectory_nominal_time: 3.657636359
+      trajectory_time: 11.196907169
+    repetition_5:
+      average_slowdown: 3.0613924605838596
+      outcome: true
+      planning_time: 0.003294384
+      prefix: query_3/mixed_strategy_a/repetition_5
+      trajectory_length: 2.74477175838774
+      trajectory_nominal_time: 3.657636359
+      trajectory_time: 11.197460373
+query_4:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.004312274
+      prefix: query_4/hamp_timebased/repetition_0
+      trajectory_length: 2.6569593891810372
+      trajectory_nominal_time: 3.243709337
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 24.523625629
+      prefix: query_4/hamp_timebased/repetition_1
+      trajectory_length: 2.6136440460250756
+      trajectory_nominal_time: 3.289177779
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_4/hamp_timebased/repetition_2
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_4/hamp_timebased/repetition_3
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_4/hamp_timebased/repetition_4
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_4/hamp_timebased/repetition_5
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.003343263
+      prefix: query_4/hamp_timebased_1e6/repetition_0
+      trajectory_length: 2.661352945627933
+      trajectory_nominal_time: 3.574959713
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.004408951
+      prefix: query_4/hamp_timebased_1e6/repetition_1
+      trajectory_length: 2.666853480726232
+      trajectory_nominal_time: 3.5244414280000003
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_4/hamp_timebased_1e6/repetition_2
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_4/hamp_timebased_1e6/repetition_3
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_4/hamp_timebased_1e6/repetition_4
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_4/hamp_timebased_1e6/repetition_5
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.000694539
+      prefix: query_4/mixed_strategy_a/repetition_0
+      trajectory_length: 2.5563238345879133
+      trajectory_nominal_time: 3.3001367630000003
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.028026314
+      prefix: query_4/mixed_strategy_a/repetition_1
+      trajectory_length: 2.556391860355797
+      trajectory_nominal_time: 3.289263825
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_4/mixed_strategy_a/repetition_2
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_4/mixed_strategy_a/repetition_3
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_4/mixed_strategy_a/repetition_4
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_4/mixed_strategy_a/repetition_5
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+query_5:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 1.518371480369396
+      outcome: true
+      planning_time: 30.002177048
+      prefix: query_5/hamp_timebased/repetition_0
+      trajectory_length: 1.01410322132563
+      trajectory_nominal_time: 2.171444282
+      trajectory_time: 3.297059069
+    repetition_1:
+      average_slowdown: 1.4296178030995925
+      outcome: true
+      planning_time: 30.001721635
+      prefix: query_5/hamp_timebased/repetition_1
+      trajectory_length: 1.0343037457017004
+      trajectory_nominal_time: 2.026778394
+      trajectory_time: 2.897518475
+    repetition_2:
+      average_slowdown: 1.4190671316658143
+      outcome: true
+      planning_time: 30.002488349
+      prefix: query_5/hamp_timebased/repetition_2
+      trajectory_length: 1.017163156251953
+      trajectory_nominal_time: 2.111746093
+      trajectory_time: 2.996709471
+    repetition_3:
+      average_slowdown: 1.3953182963622068
+      outcome: true
+      planning_time: 30.002337209
+      prefix: query_5/hamp_timebased/repetition_3
+      trajectory_length: 1.0468584367369937
+      trajectory_nominal_time: 2.14823316
+      trajectory_time: 2.9974690330000002
+    repetition_4:
+      average_slowdown: 1.512719775859334
+      outcome: true
+      planning_time: 30.003996224
+      prefix: query_5/hamp_timebased/repetition_4
+      trajectory_length: 0.9614059009223945
+      trajectory_nominal_time: 2.046424543
+      trajectory_time: 3.095666876
+    repetition_5:
+      average_slowdown: 1.504871878851982
+      outcome: true
+      planning_time: 30.002667905
+      prefix: query_5/hamp_timebased/repetition_5
+      trajectory_length: 0.9728193838126151
+      trajectory_nominal_time: 2.058000682
+      trajectory_time: 3.097027353
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 1.4870964563547489
+      outcome: true
+      planning_time: 30.002518663
+      prefix: query_5/hamp_timebased_1e6/repetition_0
+      trajectory_length: 1.0217976831581492
+      trajectory_nominal_time: 2.016065603
+      trajectory_time: 2.998084014
+    repetition_1:
+      average_slowdown: 1.5317307983192427
+      outcome: true
+      planning_time: 30.002443586
+      prefix: query_5/hamp_timebased_1e6/repetition_1
+      trajectory_length: 0.934709254205645
+      trajectory_nominal_time: 1.890948595
+      trajectory_time: 2.8964242010000003
+    repetition_2:
+      average_slowdown: 1.513539013236012
+      outcome: true
+      planning_time: 30.00425917
+      prefix: query_5/hamp_timebased_1e6/repetition_2
+      trajectory_length: 0.9513510678585047
+      trajectory_nominal_time: 1.979057043
+      trajectory_time: 2.995380044
+    repetition_3:
+      average_slowdown: 1.371703305782165
+      outcome: true
+      planning_time: 30.002806505
+      prefix: query_5/hamp_timebased_1e6/repetition_3
+      trajectory_length: 0.9709010168353494
+      trajectory_nominal_time: 2.038697459
+      trajectory_time: 2.796488044
+    repetition_4:
+      average_slowdown: 1.5501931988604596
+      outcome: true
+      planning_time: 30.001273754
+      prefix: query_5/hamp_timebased_1e6/repetition_4
+      trajectory_length: 0.9654116823105432
+      trajectory_nominal_time: 1.934431182
+      trajectory_time: 2.998742062
+    repetition_5:
+      average_slowdown: 1.458259722065938
+      outcome: true
+      planning_time: 30.002534817
+      prefix: query_5/hamp_timebased_1e6/repetition_5
+      trajectory_length: 1.0610612542920863
+      trajectory_nominal_time: 2.055398089
+      trajectory_time: 2.997304246
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 1.5480391326361123
+      outcome: true
+      planning_time: 30.025013778
+      prefix: query_5/mixed_strategy_a/repetition_0
+      trajectory_length: 0.8924477482997424
+      trajectory_nominal_time: 2.050804034
+      trajectory_time: 3.174724898
+    repetition_1:
+      average_slowdown: 1.4968782579727429
+      outcome: true
+      planning_time: 30.009269567
+      prefix: query_5/mixed_strategy_a/repetition_1
+      trajectory_length: 0.8879862207200866
+      trajectory_nominal_time: 1.998120423
+      trajectory_time: 2.9909430180000003
+    repetition_2:
+      average_slowdown: 1.4790361012303035
+      outcome: true
+      planning_time: 30.05791288
+      prefix: query_5/mixed_strategy_a/repetition_2
+      trajectory_length: 0.8884165017881498
+      trajectory_nominal_time: 1.988890805
+      trajectory_time: 2.941641302
+    repetition_3:
+      average_slowdown: 1.5399007467660524
+      outcome: true
+      planning_time: 30.045464672
+      prefix: query_5/mixed_strategy_a/repetition_3
+      trajectory_length: 0.887924972260216
+      trajectory_nominal_time: 1.853432404
+      trajectory_time: 2.854101943
+    repetition_4:
+      average_slowdown: 1.4691008097340779
+      outcome: true
+      planning_time: 30.076100675
+      prefix: query_5/mixed_strategy_a/repetition_4
+      trajectory_length: 0.8887251196864998
+      trajectory_nominal_time: 2.057749878
+      trajectory_time: 3.023042012
+    repetition_5:
+      average_slowdown: 1.6223482021197577
+      outcome: true
+      planning_time: 30.005792279
+      prefix: query_5/mixed_strategy_a/repetition_5
+      trajectory_length: 0.8907908246044834
+      trajectory_nominal_time: 1.78381987
+      trajectory_time: 2.893976959
+query_6:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 1.3003427108662111
+      outcome: true
+      planning_time: 30.00150151
+      prefix: query_6/hamp_timebased/repetition_0
+      trajectory_length: 1.0560427999016424
+      trajectory_nominal_time: 1.383006046
+      trajectory_time: 1.798381831
+    repetition_1:
+      average_slowdown: 1.299694170667934
+      outcome: true
+      planning_time: 30.002422262
+      prefix: query_6/hamp_timebased/repetition_1
+      trajectory_length: 1.0560427452558194
+      trajectory_nominal_time: 1.383005996
+      trajectory_time: 1.797484831
+    repetition_2:
+      average_slowdown: 1.2997375356376426
+      outcome: true
+      planning_time: 30.002467768
+      prefix: query_6/hamp_timebased/repetition_2
+      trajectory_length: 1.0560427999004456
+      trajectory_nominal_time: 1.383006046
+      trajectory_time: 1.79754487
+    repetition_3:
+      average_slowdown: 1.298409491551854
+      outcome: true
+      planning_time: 30.0032484
+      prefix: query_6/hamp_timebased/repetition_3
+      trajectory_length: 1.0560427999004456
+      trajectory_nominal_time: 1.383006046
+      trajectory_time: 1.795708177
+    repetition_4:
+      average_slowdown: 1.3000318149006849
+      outcome: true
+      planning_time: 30.002072798
+      prefix: query_6/hamp_timebased/repetition_4
+      trajectory_length: 1.0560427999004456
+      trajectory_nominal_time: 1.383006046
+      trajectory_time: 1.79795186
+    repetition_5:
+      average_slowdown: 1.3008667447286055
+      outcome: true
+      planning_time: 30.001104909
+      prefix: query_6/hamp_timebased/repetition_5
+      trajectory_length: 1.056042799900445
+      trajectory_nominal_time: 1.383006046
+      trajectory_time: 1.799106573
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 1.299179401418177
+      outcome: true
+      planning_time: 30.003050565
+      prefix: query_6/hamp_timebased_1e6/repetition_0
+      trajectory_length: 1.0560428002018407
+      trajectory_nominal_time: 1.383006046
+      trajectory_time: 1.7967729669999999
+    repetition_1:
+      average_slowdown: 1.299928598432172
+      outcome: true
+      planning_time: 30.002250776
+      prefix: query_6/hamp_timebased_1e6/repetition_1
+      trajectory_length: 1.0560428002018385
+      trajectory_nominal_time: 1.383006046
+      trajectory_time: 1.797809111
+    repetition_2:
+      average_slowdown: 1.3006202541214342
+      outcome: true
+      planning_time: 30.001535054
+      prefix: query_6/hamp_timebased_1e6/repetition_2
+      trajectory_length: 1.0560428002018405
+      trajectory_nominal_time: 1.383006046
+      trajectory_time: 1.798765675
+    repetition_3:
+      average_slowdown: 1.2997061055508936
+      outcome: true
+      planning_time: 30.002493898
+      prefix: query_6/hamp_timebased_1e6/repetition_3
+      trajectory_length: 1.0560428002018407
+      trajectory_nominal_time: 1.383006046
+      trajectory_time: 1.797501402
+    repetition_4:
+      average_slowdown: 1.2994189781004037
+      outcome: true
+      planning_time: 30.003160992
+      prefix: query_6/hamp_timebased_1e6/repetition_4
+      trajectory_length: 1.0560428002018407
+      trajectory_nominal_time: 1.383006046
+      trajectory_time: 1.797104303
+    repetition_5:
+      average_slowdown: 1.2997617929430223
+      outcome: true
+      planning_time: 30.002276644
+      prefix: query_6/hamp_timebased_1e6/repetition_5
+      trajectory_length: 1.0560428002018403
+      trajectory_nominal_time: 1.383006046
+      trajectory_time: 1.797578418
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 1.1620349124634275
+      outcome: true
+      planning_time: 0.002295955
+      prefix: query_6/mixed_strategy_a/repetition_0
+      trajectory_length: 1.0562130086453156
+      trajectory_nominal_time: 2.063161259
+      trajectory_time: 2.397465413
+    repetition_1:
+      average_slowdown: 1.162358584995647
+      outcome: true
+      planning_time: 0.001880565
+      prefix: query_6/mixed_strategy_a/repetition_1
+      trajectory_length: 1.0560418586929474
+      trajectory_nominal_time: 2.063005187
+      trajectory_time: 2.39795179
+    repetition_2:
+      average_slowdown: 1.1620748895274928
+      outcome: true
+      planning_time: 0.0023112880000000003
+      prefix: query_6/mixed_strategy_a/repetition_2
+      trajectory_length: 1.0560428002018407
+      trajectory_nominal_time: 2.063006046
+      trajectory_time: 2.397367523
+    repetition_3:
+      average_slowdown: 1.161895313223915
+      outcome: true
+      planning_time: 0.002927369
+      prefix: query_6/mixed_strategy_a/repetition_3
+      trajectory_length: 1.0560428002018407
+      trajectory_nominal_time: 2.063006046
+      trajectory_time: 2.396997056
+    repetition_4:
+      average_slowdown: 1.1556055008284742
+      outcome: true
+      planning_time: 0.013864943000000001
+      prefix: query_6/mixed_strategy_a/repetition_4
+      trajectory_length: 1.0560428002018407
+      trajectory_nominal_time: 2.063006046
+      trajectory_time: 2.3840211350000002
+    repetition_5:
+      average_slowdown: 1.161776477732619
+      outcome: true
+      planning_time: 0.002982789
+      prefix: query_6/mixed_strategy_a/repetition_5
+      trajectory_length: 1.0560426867898571
+      trajectory_nominal_time: 2.063005943
+      trajectory_time: 2.396751778
+query_7:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 1.514782796117177
+      outcome: true
+      planning_time: 30.00772546
+      prefix: query_7/hamp_timebased/repetition_0
+      trajectory_length: 3.1255070222597916
+      trajectory_nominal_time: 3.295598452
+      trajectory_time: 4.992115838
+    repetition_1:
+      average_slowdown: 1.447887187809521
+      outcome: true
+      planning_time: 30.004966221
+      prefix: query_7/hamp_timebased/repetition_1
+      trajectory_length: 3.3430324366360433
+      trajectory_nominal_time: 3.449973326
+      trajectory_time: 4.995172177
+    repetition_2:
+      average_slowdown: 1.5382368915627354
+      outcome: true
+      planning_time: 30.005915153
+      prefix: query_7/hamp_timebased/repetition_2
+      trajectory_length: 2.583143414589271
+      trajectory_nominal_time: 2.72690953
+      trajectory_time: 4.194632839
+    repetition_3:
+      average_slowdown: 1.5495382964825373
+      outcome: true
+      planning_time: 30.002371791
+      prefix: query_7/hamp_timebased/repetition_3
+      trajectory_length: 3.041876978029643
+      trajectory_nominal_time: 3.225148377
+      trajectory_time: 4.997490922
+    repetition_4:
+      average_slowdown: 1.538247130054985
+      outcome: true
+      planning_time: 30.003808207
+      prefix: query_7/hamp_timebased/repetition_4
+      trajectory_length: 3.134642681485791
+      trajectory_nominal_time: 3.313013037
+      trajectory_time: 5.096232796
+    repetition_5:
+      average_slowdown: 1.652308593267736
+      outcome: true
+      planning_time: 30.003850123
+      prefix: query_7/hamp_timebased/repetition_5
+      trajectory_length: 3.477206132770631
+      trajectory_nominal_time: 3.5682757179999998
+      trajectory_time: 5.895892632
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 1.591505298403579
+      outcome: true
+      planning_time: 30.002596352
+      prefix: query_7/hamp_timebased_1e6/repetition_0
+      trajectory_length: 3.332485242554661
+      trajectory_nominal_time: 3.454128914
+      trajectory_time: 5.497264468
+    repetition_1:
+      average_slowdown: 1.7148888769611446
+      outcome: true
+      planning_time: 30.008723212
+      prefix: query_7/hamp_timebased_1e6/repetition_1
+      trajectory_length: 3.7122239851484675
+      trajectory_nominal_time: 3.72688512
+      trajectory_time: 6.391193838
+    repetition_2:
+      average_slowdown: 1.5855246082845773
+      outcome: true
+      planning_time: 30.003310549
+      prefix: query_7/hamp_timebased_1e6/repetition_2
+      trajectory_length: 2.1256667795349213
+      trajectory_nominal_time: 2.71024113
+      trajectory_time: 4.297154006
+    repetition_3:
+      average_slowdown: 1.7532676821067346
+      outcome: true
+      planning_time: 30.011580132
+      prefix: query_7/hamp_timebased_1e6/repetition_3
+      trajectory_length: 2.254744631383887
+      trajectory_nominal_time: 2.788804863
+      trajectory_time: 4.889521438
+    repetition_4:
+      average_slowdown: 1.6792384470530035
+      outcome: true
+      planning_time: 30.006825903
+      prefix: query_7/hamp_timebased_1e6/repetition_4
+      trajectory_length: 3.9741879729216256
+      trajectory_nominal_time: 3.8667432010000002
+      trajectory_time: 6.493183848
+    repetition_5:
+      average_slowdown: 1.4837924371394933
+      outcome: true
+      planning_time: 30.00711906
+      prefix: query_7/hamp_timebased_1e6/repetition_5
+      trajectory_length: 2.8577319084715826
+      trajectory_nominal_time: 3.027882688
+      trajectory_time: 4.492749433
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 3.6302290693796095
+      outcome: true
+      planning_time: 30.006738759
+      prefix: query_7/mixed_strategy_a/repetition_0
+      trajectory_length: 1.9154135716228413
+      trajectory_nominal_time: 2.312036951
+      trajectory_time: 8.393223749
+    repetition_1:
+      average_slowdown: 3.56304453836205
+      outcome: true
+      planning_time: 30.016806771
+      prefix: query_7/mixed_strategy_a/repetition_1
+      trajectory_length: 1.9155190237018784
+      trajectory_nominal_time: 2.324726825
+      trajectory_time: 8.283105217
+    repetition_2:
+      average_slowdown: 4.018660868957702
+      outcome: true
+      planning_time: 30.03247595
+      prefix: query_7/mixed_strategy_a/repetition_2
+      trajectory_length: 1.9154552411346868
+      trajectory_nominal_time: 2.305926487
+      trajectory_time: 9.26673654
+    repetition_3:
+      average_slowdown: 4.0625585448030535
+      outcome: true
+      planning_time: 30.036464584
+      prefix: query_7/mixed_strategy_a/repetition_3
+      trajectory_length: 1.9154820412491853
+      trajectory_nominal_time: 2.304723143
+      trajectory_time: 9.363072698
+    repetition_4:
+      average_slowdown: 3.7913969982023756
+      outcome: true
+      planning_time: 30.022517115
+      prefix: query_7/mixed_strategy_a/repetition_4
+      trajectory_length: 1.915684915262768
+      trajectory_nominal_time: 2.315206909
+      trajectory_time: 8.777868525
+    repetition_5:
+      average_slowdown: 3.5554976469026975
+      outcome: true
+      planning_time: 30.005096262
+      prefix: query_7/mixed_strategy_a/repetition_5
+      trajectory_length: 1.9152831417615055
+      trajectory_nominal_time: 2.3047735830000002
+      trajectory_time: 8.194617051
+query_8:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.00285141
+      prefix: query_8/hamp_timebased/repetition_0
+      trajectory_length: 1.4762306045032032
+      trajectory_nominal_time: 1.418714229
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.000795269
+      prefix: query_8/hamp_timebased/repetition_1
+      trajectory_length: 1.4762310894519761
+      trajectory_nominal_time: 1.41871456
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_8/hamp_timebased/repetition_2
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_8/hamp_timebased/repetition_3
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_8/hamp_timebased/repetition_4
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_8/hamp_timebased/repetition_5
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.00383778
+      prefix: query_8/hamp_timebased_1e6/repetition_0
+      trajectory_length: 1.4759624481789175
+      trajectory_nominal_time: 1.418530997
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.005056996
+      prefix: query_8/hamp_timebased_1e6/repetition_1
+      trajectory_length: 1.4759624475878899
+      trajectory_nominal_time: 1.418530996
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_8/hamp_timebased_1e6/repetition_2
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_8/hamp_timebased_1e6/repetition_3
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_8/hamp_timebased_1e6/repetition_4
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_8/hamp_timebased_1e6/repetition_5
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 0.0025496330000000004
+      prefix: query_8/mixed_strategy_a/repetition_0
+      trajectory_length: 1.4759639088747392
+      trajectory_nominal_time: 1.9853992
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 0.00238876
+      prefix: query_8/mixed_strategy_a/repetition_1
+      trajectory_length: 1.475962412900038
+      trajectory_nominal_time: 1.985398177
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_8/mixed_strategy_a/repetition_2
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_8/mixed_strategy_a/repetition_3
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_8/mixed_strategy_a/repetition_4
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: 0
+      planning_time: 0.0
+      prefix: query_8/mixed_strategy_a/repetition_5
+      trajectory_length: 0.0
+      trajectory_nominal_time: 0.0
+      trajectory_time: 0.0
+query_9:
+  hamp_timebased:
+    repetition_0:
+      average_slowdown: 1.5803781320109698
+      outcome: true
+      planning_time: 30.002295134
+      prefix: query_9/hamp_timebased/repetition_0
+      trajectory_length: 2.208223010672965
+      trajectory_nominal_time: 3.162191471
+      trajectory_time: 4.99745825
+    repetition_1:
+      average_slowdown: 1.7448555743266327
+      outcome: true
+      planning_time: 30.002073726
+      prefix: query_9/hamp_timebased/repetition_1
+      trajectory_length: 2.186712096963299
+      trajectory_nominal_time: 2.9215738460000003
+      trajectory_time: 5.097724411
+    repetition_2:
+      average_slowdown: 1.6958606299301504
+      outcome: true
+      planning_time: 30.006548335
+      prefix: query_9/hamp_timebased/repetition_2
+      trajectory_length: 1.856670433858676
+      trajectory_nominal_time: 2.826274023
+      trajectory_time: 4.7929668450000005
+    repetition_3:
+      average_slowdown: 1.5957419157132495
+      outcome: true
+      planning_time: 30.00190411
+      prefix: query_9/hamp_timebased/repetition_3
+      trajectory_length: 2.055848258067179
+      trajectory_nominal_time: 2.944434059
+      trajectory_time: 4.698556846
+    repetition_4:
+      average_slowdown: 1.562345311991483
+      outcome: true
+      planning_time: 30.005615572
+      prefix: query_9/hamp_timebased/repetition_4
+      trajectory_length: 1.96264426663511
+      trajectory_nominal_time: 2.812581057
+      trajectory_time: 4.394222829
+    repetition_5:
+      average_slowdown: 1.4584333873382596
+      outcome: true
+      planning_time: 30.001165446
+      prefix: query_9/hamp_timebased/repetition_5
+      trajectory_length: 2.1066033886240434
+      trajectory_nominal_time: 3.084727845
+      trajectory_time: 4.49887008
+  hamp_timebased_1e6:
+    repetition_0:
+      average_slowdown: 1.6788400799383973
+      outcome: true
+      planning_time: 30.00170864
+      prefix: query_9/hamp_timebased_1e6/repetition_0
+      trajectory_length: 2.109751159477786
+      trajectory_nominal_time: 2.9769543560000002
+      trajectory_time: 4.997830289
+    repetition_1:
+      average_slowdown: 1.7488921748781274
+      outcome: true
+      planning_time: 30.00164224
+      prefix: query_9/hamp_timebased_1e6/repetition_1
+      trajectory_length: 2.19260760762314
+      trajectory_nominal_time: 3.143583704
+      trajectory_time: 5.497788941
+    repetition_2:
+      average_slowdown: 1.7122994068212574
+      outcome: true
+      planning_time: 30.001990916
+      prefix: query_9/hamp_timebased_1e6/repetition_2
+      trajectory_length: 2.205410270743991
+      trajectory_nominal_time: 2.9188905060000003
+      trajectory_time: 4.998014482
+    repetition_3:
+      average_slowdown: 1.460557531577187
+      outcome: true
+      planning_time: 30.001193422
+      prefix: query_9/hamp_timebased_1e6/repetition_3
+      trajectory_length: 2.163076770365884
+      trajectory_nominal_time: 3.148172071
+      trajectory_time: 4.598086429
+    repetition_4:
+      average_slowdown: 1.5451464728522717
+      outcome: true
+      planning_time: 30.001596931
+      prefix: query_9/hamp_timebased_1e6/repetition_4
+      trajectory_length: 2.1948949509451117
+      trajectory_nominal_time: 2.911040192
+      trajectory_time: 4.497983485
+    repetition_5:
+      average_slowdown: 1.694449463751631
+      outcome: true
+      planning_time: 30.001442216
+      prefix: query_9/hamp_timebased_1e6/repetition_5
+      trajectory_length: 1.8922362654787481
+      trajectory_nominal_time: 3.068407094
+      trajectory_time: 5.199260755
+  mixed_strategy_a:
+    repetition_0:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.019329934
+      prefix: query_9/mixed_strategy_a/repetition_0
+      trajectory_length: 1.329637698069516
+      trajectory_nominal_time: 2.236654711
+      trajectory_time: 0.0
+    repetition_1:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.009696916
+      prefix: query_9/mixed_strategy_a/repetition_1
+      trajectory_length: 1.331651526649459
+      trajectory_nominal_time: 2.176857412
+      trajectory_time: 0.0
+    repetition_2:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.007588775
+      prefix: query_9/mixed_strategy_a/repetition_2
+      trajectory_length: 1.330617006761504
+      trajectory_nominal_time: 2.21468739
+      trajectory_time: 0.0
+    repetition_3:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.011687528
+      prefix: query_9/mixed_strategy_a/repetition_3
+      trajectory_length: 1.3327868727645729
+      trajectory_nominal_time: 2.156411061
+      trajectory_time: 0.0
+    repetition_4:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.02749892
+      prefix: query_9/mixed_strategy_a/repetition_4
+      trajectory_length: 1.3299435984740329
+      trajectory_nominal_time: 2.238490138
+      trajectory_time: 0.0
+    repetition_5:
+      average_slowdown: 0.0
+      outcome: false
+      planning_time: 30.014289288
+      prefix: query_9/mixed_strategy_a/repetition_5
+      trajectory_length: 1.3324100266497523
+      trajectory_nominal_time: 2.203740726
+      trajectory_time: 0.0
+repetitions: 6
