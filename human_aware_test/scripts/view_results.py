@@ -15,9 +15,11 @@ import matplotlib.pyplot as plt
 import statistics
 import seaborn
 import pandas as pd
+from scipy.stats import ks_2samp
+
 
 # Params set by user
-load_from_parameter_server=False    # load current rosparam (for online analysis)
+load_from_parameter_server=True    # load current rosparam (for online analysis)
 only_if_different=True              # skip results that are equal to the baseline (i.e. hamp was not activated)
 use_median=True                     # group repetitions and compute median before normalization
 itp_delay=0.35                      # delay of the time parametrization (used to adjust the scaling values)
@@ -72,14 +74,14 @@ for iquery in range(0,queries_number):
             result = q[planner][repetition_str]
 
             outcome.append(int(result["outcome"]))
-            if result["outcome"]==1:
+            if (result["outcome"]==1 and result["trajectory_length"]>0): # length is < 0 if query was skipped
                 lengths.append(result["trajectory_length"])
                 times_exec.append(result["trajectory_time"])
                 times_nominal.append(result["trajectory_nominal_time"])
                 planning_time.append(result["planning_time"])
                 average_slowdown.append(result["average_slowdown"]-(itp_delay/result["trajectory_nominal_time"]))
             elif result["trajectory_length"]>0.0:
-                lengths.append(result["trajectory_length"]) # append also planned length
+                lengths.append(result["trajectory_length"]) # append planned length even if failed
 
         outcomes[i_planner].extend(outcome)
 
@@ -89,13 +91,17 @@ for iquery in range(0,queries_number):
                 length_median_baseline=statistics.median(lengths)
             else:
                 baseline_failed = False
-                length_median_baseline=statistics.median(lengths)
-                time_exec_median_baseline = statistics.median(times_exec)
-                time_nominal_median_baseline = statistics.median(times_nominal)
-                slowdown_median_baseline = statistics.median(average_slowdown)
+                #length_median_baseline=statistics.median(lengths)
+                #time_exec_median_baseline = statistics.median(times_exec)
+                #time_nominal_median_baseline = statistics.median(times_nominal)
+                #slowdown_median_baseline = statistics.median(average_slowdown)
+                length_median_baseline=min(lengths)
+                time_exec_median_baseline = min(times_exec)
+                time_nominal_median_baseline = min(times_nominal)
+                slowdown_median_baseline = min(average_slowdown)
 
         if not baseline_failed and sum(outcome)>0:
-            if abs((not only_if_different) or statistics.median(lengths)-length_median_baseline)>=1e-2 or i_planner<1:
+            if ((not only_if_different) or abs(statistics.median(lengths)-length_median_baseline)/length_median_baseline>=0.02 or i_planner<2):
                 if use_median==True:
                     lengths_normalized[i_planner].append( statistics.median(lengths) / length_median_baseline  )
                     times_exec_normalized[i_planner].append( statistics.median(times_exec) / time_exec_median_baseline )
@@ -170,6 +176,10 @@ for ax,id in zip(axes,select_indices):
         for patch, color in zip(bplot['boxes'], colors):
             patch.set_facecolor(color)
 
+        for data_pl in data:
+            print(ks_2samp(data[0], data_pl))
+
+
     print(title+":")
     if title == "success rate":
         for i_pl, planner in enumerate(data):
@@ -177,6 +187,7 @@ for ax,id in zip(axes,select_indices):
     else:
         for i_pl,planner in enumerate(data):
             print( "\t" + xlabels[i_pl]+": " + "{:.3f}".format(statistics.mean(planner)) + " \pm "+ "{:.4f}".format(statistics.stdev(planner)) + "(n=" + str(len(planner)) + ")")
+
 
 
 

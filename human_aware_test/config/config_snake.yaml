@@ -1,15 +1,14 @@
 move_group_name: manipulator
 tool_frame: flange
 
-planning_trials: 20
+planning_trials: 100
 reps_query: 6
 
 planning_time: 30
 planners:
 #- mixed_strategy_b
-#- timebased
+- timebased
 - hamp_timebased
-- hamp_timebased_1e6
 
 planner_baseline: mixed_strategy_a # Note: this planner should not be present in "planners"
 planning_time_baseline: 30
@@ -17,7 +16,7 @@ planning_time_baseline: 30
 #- probabilistic_hamp_time_based
 
 occ_center:
-- 1.5
+- 1.2
 - 0
 - 1
 
