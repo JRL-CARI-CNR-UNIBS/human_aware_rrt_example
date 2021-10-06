@@ -128,6 +128,10 @@ int main(int argc, char** argv)
   if (!nh.getParam("reps_query",reps_query))
     ROS_WARN("reps_query not found. Default: %d", reps_query);
 
+  int starting_trial=0;
+  if (!nh.getParam("starting_trial",starting_trial))
+    ROS_WARN("starting_trial not found. Default: %d", starting_trial);
+
   bool limit_goal_workspace=false;
   std::vector<double> box_center(3,0);
   std::vector<double> box_size(3,10000);
@@ -166,7 +170,7 @@ int main(int argc, char** argv)
   pnh.setParam("planning_time",planning_time);
   pnh.setParam("planning_trials",planning_trials);
 
-  pnh.setParam("queries_executed",0);
+  pnh.setParam("queries_executed",starting_trial);
 
   moveit::planning_interface::MoveGroupInterface move_group(planning_group);
   robot_model_loader::RobotModelLoader robot_model_loader("robot_description");
@@ -220,7 +224,7 @@ int main(int argc, char** argv)
 
   ros::Duration(2.0).sleep();
 
-  for (unsigned int i_trial=0;i_trial<planning_trials;i_trial++)
+  for (unsigned int i_trial=starting_trial;i_trial<planning_trials;i_trial++)
   {
     start_state=move_group.getCurrentState();
 

@@ -25,7 +25,7 @@ use_median=True                     # group repetitions and compute median befor
 itp_delay=0.35                      # delay of the time parametrization (used to adjust the scaling values)
 
 dof=3
-test_name='hamp_result_20211001_2.yaml'
+test_name='hamp_result_20211006_80queries.yaml'
 
 if load_from_parameter_server:
    param=rospy.get_param("/hamp")
@@ -95,13 +95,13 @@ for iquery in range(0,queries_number):
                 #time_exec_median_baseline = statistics.median(times_exec)
                 #time_nominal_median_baseline = statistics.median(times_nominal)
                 #slowdown_median_baseline = statistics.median(average_slowdown)
-                length_median_baseline=min(lengths)
-                time_exec_median_baseline = min(times_exec)
-                time_nominal_median_baseline = min(times_nominal)
-                slowdown_median_baseline = min(average_slowdown)
+                length_median_baseline=statistics.median(lengths)
+                time_exec_median_baseline = statistics.median(times_exec)
+                time_nominal_median_baseline = statistics.median(times_nominal)
+                slowdown_median_baseline = statistics.median(average_slowdown)
 
         if not baseline_failed and sum(outcome)>0:
-            if ((not only_if_different) or abs(statistics.median(lengths)-length_median_baseline)/length_median_baseline>=0.02 or i_planner<2):
+            if ((not only_if_different) or abs(statistics.median(lengths)-length_median_baseline)/length_median_baseline>=0.02 or i_planner<1):
                 if use_median==True:
                     lengths_normalized[i_planner].append( statistics.median(lengths) / length_median_baseline  )
                     times_exec_normalized[i_planner].append( statistics.median(times_exec) / time_exec_median_baseline )

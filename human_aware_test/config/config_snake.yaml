@@ -7,7 +7,7 @@ reps_query: 6
 planning_time: 30
 planners:
 #- mixed_strategy_b
-- timebased
+#- timebased
 - hamp_timebased
 
 planner_baseline: mixed_strategy_a # Note: this planner should not be present in "planners"
@@ -16,7 +16,7 @@ planning_time_baseline: 30
 #- probabilistic_hamp_time_based
 
 occ_center:
-- 1.2
+- 1.5
 - 0
 - 1
 
@@ -38,4 +38,4 @@ ws_limits:
   box_size:
     - 2
     - 2
-    - 2
+    - 1
