@@ -4,6 +4,8 @@ tool_frame: flange
 planning_trials: 100
 reps_query: 6
 
+starting_trial: 0
+
 planning_time: 30
 planners:
 #- mixed_strategy_b
