@@ -113,7 +113,7 @@ for iquery in range(0,queries_number):
                     times_nominal_normalized[i_planner].extend( [x / time_nominal_median_baseline for x in times_nominal] )
                     slowdowns_normalized[i_planner].extend([x / slowdown_median_baseline for x in average_slowdown])
         elif sum(outcome)>0:
-            if abs((not only_if_different) or statistics.median(lengths)-length_median_baseline)>=1e-2 or i_planner<1:
+            if ((not only_if_different) or abs(statistics.median(lengths)-length_median_baseline)/length_median_baseline>=0.02 or i_planner<2):
                 if use_median==True:
                     lengths_normalized[i_planner].append( statistics.median(lengths) / length_median_baseline  )
                 else:
