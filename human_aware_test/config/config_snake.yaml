@@ -4,7 +4,7 @@ tool_frame: flange
 planning_trials: 100
 reps_query: 6
 
-starting_trial: 0
+starting_trial: 12
 
 planning_time: 30
 planners:
