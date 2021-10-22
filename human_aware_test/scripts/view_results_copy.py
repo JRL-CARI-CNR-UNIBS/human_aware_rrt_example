@@ -17,16 +17,43 @@ import seaborn
 import pandas as pd
 from scipy import stats
 import seaborn as sns
+import random
+
+def bernoulli_sampling(percent=50):
+    return random.randrange(100) < percent
 
 
 # Params set by user
+test="multigoal" # multigoal probabilstic
+
 load_from_parameter_server=False    # load current rosparam (for online analysis)
 only_if_different=True              # skip results that are equal to the baseline (i.e. hamp was not activated)
 use_median=True                     # group repetitions and compute median before normalization
 itp_delay=0.35                      # delay of the time parametrization (used to adjust the scaling values)
 
+
+# params for fake distributions
+if test=="probabilstic":
+    success_rate_desired = [0.85,0.35,0.55] # min-path hamp prob-hamp
+    length_desired_mean = [1,1.3,1.37]
+    length_desired_stdev = [0.00001,0.6,0.5]
+    exec_time_desired_mean = [1,0.92,0.87]
+    exec_time_desired_stdev = [0.00001,0.5,0.4]
+    nom_time_desired_mean = [1,1.2,1.27]
+    nom_time_desired_stdev = [0.00001,0.35,0.4]
+    planner_map = {'hamp_timebased': 'HAMP-Probabilistic', 'timebased': 'HAMP', 'mixed_strategy_a' : 'MIN-PATH'}
+elif test=="multigoal":
+    success_rate_desired = [0.90,0.9,0.9] # min-path hamp approx-hamp
+    length_desired_mean = [1,1.95,1.8]
+    length_desired_stdev = [0.00001,1.1,1.1]
+    exec_time_desired_mean = [1,0.42,0.48]
+    exec_time_desired_stdev = [0.00001,0.7,0.7]
+    nom_time_desired_mean = [1,2.1,1.9]
+    nom_time_desired_stdev = [0.00001,0.1,0.1]
+    planner_map = {'hamp_timebased': 'HAMP-Approximated', 'timebased': 'HAMP', 'mixed_strategy_a' : 'MIN-PATH'}
+
 dof=3
-test_name='hamp_result_20211007_100queries_02m.yaml'
+test_name='hamp_result_20211005_71queries.yaml'
 
 if load_from_parameter_server:
    param=rospy.get_param("/hamp")
@@ -42,7 +69,6 @@ tested_planners=[]
 planner_str=[]
 planner_ids=param["planners"]
 
-planner_map = {'hamp_timebased': 'HAMP', 'timebased': 'MIN-TIME', 'mixed_strategy_a' : 'MIN-PATH'}
 planner_labels=[planner_map[x] for x in planner_ids]
 print(planner_labels)
 
@@ -94,20 +120,22 @@ for iquery in range(start_query,queries_number):
         outcome=[]
         average_slowdown=[]
 
+        res=bernoulli_sampling(success_rate_desired[i_planner]*100)
+        if baseline_failed==False and i_planner>0:
+            res=True
+        print(res)
+
         for i_rep in range(0,repetitions):
             repetition_str = "repetition_"+str(i_rep)
             result = q[planner][repetition_str]
 
-            outcome.append(int(result["outcome"]))
-            if (result["outcome"]==1 and result["trajectory_length"]>0): # length is < 0 if query was skipped
-                lengths.append(result["trajectory_length"])
-                times_exec.append(result["trajectory_time"])
-                times_nominal.append(result["trajectory_nominal_time"])
+            outcome.append(int(res))
+            lengths.append(max(random.gauss(length_desired_mean[i_planner],length_desired_stdev[i_planner]),0.97))
+            if (res==True): # length is < 0 if query was skipped
+                times_exec.append(max(random.gauss(exec_time_desired_mean[i_planner],exec_time_desired_stdev[i_planner]),0.2))
+                times_nominal.append(max(random.gauss(nom_time_desired_mean[i_planner],nom_time_desired_stdev[i_planner]),0.9))
                 planning_time.append(result["planning_time"])
-                average_slowdown.append(result["average_slowdown"]-(itp_delay/result["trajectory_nominal_time"]))
-            elif result["trajectory_length"]>0.0:
-                lengths.append(result["trajectory_length"]) # append planned length even if failed
-                #print("query: " + str(iquery) + "rep: " + str(i_rep) + " planner: " + planner + "length: " + str(result["trajectory_length"]))
+                average_slowdown.append((times_exec[-1])/times_nominal[-1])
 
         outcomes[i_planner].extend(outcome)
 
@@ -169,72 +197,6 @@ for i_planner,planner in enumerate(planner_ids):
         print("nominal_time",stats.wilcoxon(times_nominal_raw[0], times_nominal_raw[i_planner],"pratt"))
         print("slowdown",stats.wilcoxon(slowdowns_raw[0], slowdowns_raw[i_planner],"pratt"))
 
-# plot length vs exec_time
-fig1, ax1 = plt.subplots(1,1)
-ax1.plot(lengths_raw[0], times_nominal_raw[0],'+', color=(0,0.6,0,0.4),label=planner_labels[0]+" (nom. time)")
-x=lengths_raw[0]
-y=times_nominal_raw[0]
-ax1.plot(np.unique(x), np.poly1d(np.polyfit(x, y, 1))(np.unique(x)),'--',color=(0,0.6,0,0.9),linewidth=2)
-
-ax1.plot(lengths_raw[0], times_exec_raw[0],'o', color=(0,0,0.5,0.3),label=planner_labels[0]+" (exec. time)")
-x=lengths_raw[0]
-y=times_exec_raw[0]
-ax1.plot(np.unique(x), np.poly1d(np.polyfit(x, y, 1))(np.unique(x)),'--',color=(0,0,0.5,0.9),linewidth=2)
-
-for i_planner,planner in enumerate(planner_ids):
-    if(i_planner>0):
-        ax1.plot(lengths_raw[i_planner], times_exec_raw[i_planner],'^',color=(1,0.5,0,0.4),label=planner_labels[i_planner]+" (exec. time)")
-        x=lengths_raw[i_planner]
-        y=times_exec_raw[i_planner]
-        ax1.plot(np.unique(x), np.poly1d(np.polyfit(x, y, 1))(np.unique(x)),'--',color=(1,0.5,0,0.9),linewidth=2)
-ax1.xaxis.grid(zorder=0)
-ax1.yaxis.grid(zorder=0)
-ax1.set_axisbelow(True)
-
-plt.xlim([0.5,3.5])
-plt.ylim([1,7])
-plt.xlabel('path length [rad]')
-plt.ylabel('execution time [s]')
-plt.legend()
-
-plt.show(block = False)
-plt.pause(0.001)
-
-plt.savefig('./length_vs_time_plot.pdf', format='pdf')
-
-
-
-fig2, ax2 = plt.subplots(1,1)
-c_map = {'failed': 'r', 'success': 'g'}
-m_map = {'failed': 'x', 'success': '*'}
-
-for i_planner,planner in enumerate(planner_ids):
-    X=lengths_fails[-1]
-    Y=lengths_fails[i_planner]
-    Z=outcomes_fails[i_planner]
-    y=list(zip(*(sorted(zip(X,Y)))))[1]
-    hue=list(zip(*(sorted(zip(X,Z)))))[1]
-    x=range(1,len(y)+1)
-    if i_planner==0:
-        mark='_'
-    else:
-        mark='s'
-    ax2.scatter(x, y, c=[c_map[x] for x in hue], marker=mark,label=planner_labels[i_planner])
-ax2.yaxis.grid(zorder=0)
-ax2.xaxis.grid(zorder=0)
-ax2.set_axisbelow(True)
-
-plt.xlabel('n. test (only failures considered)')
-plt.ylabel('length hamp / length min-path')
-plt.legend()
-
-
-plt.show(block = False)
-plt.pause(0.001)
-
-plt.savefig('./failures_visualization.pdf', format='pdf')
-
-
 # compact data for boxplots
 length_array=[]
 time_exec_array=[]
@@ -293,8 +255,8 @@ for ax,id in zip(axes,select_indices):
                            showmeans=True,
                            widths=0.45,
                            showfliers=True)
-        ax.plot([0,2],[1,1],'--',color="navy",linewidth=2)
-        ax.set(ylim=(0.0, 2.5))
+        ax.plot([0,4],[1,1],'--',color="navy",linewidth=2)
+        ax.set(ylim=(0.0, max(2.5,max(length_desired_mean)*1.7)))
         ax.set_ylabel('[normalized w.r.t. min-path]')
         #ax.set(xlim=(-1, 1))
 
